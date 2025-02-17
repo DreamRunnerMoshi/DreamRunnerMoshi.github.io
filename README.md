@@ -1,9 +1,10 @@
-# Moshiur Rahman's Resume
+# Moshiur Rahman
 
-Welcome to my resume repository! This page provides an overview of my professional experience, skills, and notable achievements. You can view my full resume in PDF format [here](Resume_MoshiurRahman_Single_Page.pdf).
-
-## About Me
-I am a **Software Engineer** with over **nine years** of experience in **full-stack development** across diverse domains and technologies. My expertise lies in designing, building, and optimizing scalable solutions. Recently, I have led multiple product launches and guided team members to improve code quality and performance.
+Software Engineer with over **ten years** of experience in **full-stack development** working in a wide range of tech stack
+and domains. Guided several team members through 4+ product launches in MVP stage at a recent experience in a high
+growth travel platform. Aside from feature implementation, guided developers to improve code quality, performance and
+scalability by improving code review mechanism, reducing tech debt, improving existing implementation, and increasing
+test coverage.
 
 ### Contact Information
 - **Email:** rahman.e.moshi@gmail.com
@@ -18,7 +19,6 @@ I am a **Software Engineer** with over **nine years** of experience in **full-st
 Data Structure & Algorithms, Combinatorial Optimization, Parallel Computing, Distributed Systems, Artificial Intelligence, Information Retrieval, Computer Data and Network Security, Pattern Recognition and Image Processing, Software Requirements Specification and Analysis.
 
 ## Technical Overview
-- Over **9 years** of professional experience in software development, collaborating with global teams.
 - Good understanding of **algorithm analysis** (time complexity, space complexity).
 - Moderate understanding of **machine learning** with Python and **PyTorch**.
 - Clear understanding of **Software Development Life Cycle (SDLC)** and its processes.
