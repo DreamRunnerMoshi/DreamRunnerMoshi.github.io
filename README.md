@@ -1,7 +1,4 @@
-# Moshi
-
-
-# Moshiur Rahman's Resume
+# Moshiur Rahman
 
 Welcome to my resume repository! This page provides an overview of my professional experience, skills, and notable achievements. You can view my full resume in PDF format [here](Resume_MoshiurRahman_Single_Page.pdf).
 
