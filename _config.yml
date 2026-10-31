@@ -1,3 +1,4 @@
-theme: jekyll-theme-minimal
-title: moshi's home page
-description: Bookmark this to keep an eye on my project updates!
+title: Moshiur Rahman
+description: Senior full-stack software engineer based in Bangkok.
+exclude:
+  - README.md

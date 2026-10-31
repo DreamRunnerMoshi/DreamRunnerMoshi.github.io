@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moshiur Rahman — Senior Full-Stack Software Engineer</title>
+<meta name="description" content="Moshiur Rahman is a senior full-stack software engineer in Bangkok with over ten years of experience building scalable products, from GIS platforms to high-growth travel systems.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#e9eee9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1417" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://mosh2i.com/">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://mosh2i.com/">
+<meta property="og:title" content="Moshiur Rahman — Senior Full-Stack Software Engineer">
+<meta property="og:description" content="Over ten years of building scalable products, from GIS platforms to high-growth travel systems.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2312212b'/%3E%3Cpath d='M9 9 23 23' stroke='%23ff6b9d' stroke-width='2.5'/%3E%3Ccircle cx='9' cy='9' r='3' fill='%23e9eee9'/%3E%3Ccircle cx='23' cy='23' r='4' fill='%23ff6b9d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Moshiur Rahman",
+  "jobTitle": "Senior Full-Stack Software Engineer",
+  "url": "https://mosh2i.com/",
+  "email": "mailto:rahman.e.moshi@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Bangkok", "addressCountry": "TH" },
+  "sameAs": ["https://www.linkedin.com/in/mosh2ii", "https://github.com/DreamRunnerMoshi"]
+}
+</script>
+<style>
+:root {
+  --paper: #e9eee9;
+  --paper-raised: #f3f6f2;
+  --ink: #12212b;
+  --ink-soft: #45555e;
+  --rule: #12212b26;
+  --route: #b5114f;
+  --contour: #2c6a6e38;
+  --contour-index: #2c6a6e70;
+  --band: #12212b;
+  --band-ink: #e9eee9;
+  --band-soft: #a9bab9;
+  --band-route: #ff6b9d;
+  --band-contour: #6fb3b02e;
+  --band-contour-index: #6fb3b062;
+
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --gutter: clamp(16px, 5vw, 72px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0b1417;
+    --paper-raised: #111d21;
+    --ink: #e4ebe7;
+    --ink-soft: #9db0b0;
+    --rule: #e4ebe724;
+    --route: #ff6b9d;
+    --contour: #6fb3b026;
+    --contour-index: #6fb3b052;
+    --band: #111d21;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, p, ul, dl, dd { margin: 0; padding: 0; }
+ul { list-style: none; }
+a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1px; }
+a:hover { color: var(--route); }
+:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; border-radius: 2px; }
+::selection { background: var(--route); color: var(--paper); }
+
+.mono {
+  font: 400 .75rem/1.4 var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.skip {
+  position: absolute; left: var(--gutter); top: -60px; z-index: 5;
+  padding: 8px 14px; background: var(--ink); color: var(--paper);
+}
+.skip:focus { top: 12px; color: var(--paper); }
+
+.wrap { width: 100%; max-width: 1320px; margin-inline: auto; padding-inline: var(--gutter); }
+canvas.contours { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+}
+.hero canvas {
+  z-index: -1;
+  -webkit-mask-image: linear-gradient(#000 72%, transparent);
+  mask-image: linear-gradient(#000 72%, transparent);
+}
+.hero-inner { flex: 1; display: flex; flex-direction: column; padding-block: 24px clamp(40px, 7vh, 80px); }
+
+nav { display: flex; justify-content: space-between; align-items: center; gap: 16px 24px; flex-wrap: wrap; }
+nav .mark { text-decoration: none; font-weight: 500; }
+nav ul { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+nav ul a { text-decoration: none; }
+nav ul a:hover { text-decoration: underline; }
+
+.chart {
+  position: relative;
+  align-self: flex-end;
+  width: min(100%, clamp(250px, min(36vw, 46vh), 500px));
+  aspect-ratio: 5 / 3;
+  margin-top: clamp(40px, 7vh, 64px);
+  margin-bottom: 40px;
+}
+.chart svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.chart path { fill: none; stroke: var(--route); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.chart .origin { fill: var(--paper); stroke: var(--ink); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.chart .here { fill: var(--route); }
+.chart .ring { fill: none; stroke: var(--route); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.fix { position: absolute; font: 400 .6875rem/1.45 var(--mono); letter-spacing: .03em; color: var(--ink-soft); white-space: nowrap; }
+.fix b { display: block; font-weight: 500; font-size: .875rem; color: var(--ink); letter-spacing: .08em; }
+.fix-dac { left: 14%; bottom: calc(80.7% + 12px); margin-left: -6px; }
+.fix-bkk { right: 14%; top: calc(80.7% + 16px); margin-right: -8px; text-align: right; }
+.fix-bkk b { color: var(--route); }
+
+.intro { margin-top: auto; }
+h1 {
+  font: 300 clamp(3.4rem, min(12.2vw, 17vh), 11rem)/.92 var(--serif);
+  font-optical-sizing: auto;
+  letter-spacing: -.035em;
+  margin-left: -.04em;
+}
+h1 em { font-weight: 300; }
+.intro-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px 48px;
+  align-items: end;
+  margin-top: clamp(24px, 4vh, 40px);
+}
+.lede { max-width: 38ch; font: 400 clamp(1.25rem, 2vw, 1.625rem)/1.32 var(--serif); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-block;
+  padding: 11px 18px;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  font-size: .9375rem;
+  font-weight: 500;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn.primary { background: var(--route); border-color: var(--route); color: var(--paper); }
+.btn.primary:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+/* Sections */
+section { padding-block: clamp(64px, 11vw, 136px); }
+.split { display: grid; grid-template-columns: 3fr 9fr; gap: 28px clamp(24px, 5vw, 72px); }
+h2 { font: 300 clamp(2rem, 3.4vw, 2.75rem)/1.05 var(--serif); letter-spacing: -.02em; }
+h3 { font: 400 clamp(1.5rem, 2.4vw, 2rem)/1.15 var(--serif); letter-spacing: -.012em; }
+
+.about p.statement {
+  max-width: 28em;
+  font: 300 clamp(1.625rem, 3.2vw, 2.625rem)/1.2 var(--serif);
+  letter-spacing: -.015em;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: clamp(40px, 6vw, 72px);
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.stats dt { font: 300 clamp(2.25rem, 4vw, 3.5rem)/1 var(--serif); letter-spacing: -.02em; }
+.stats dd { margin-top: 8px; color: var(--ink-soft); font-size: .9375rem; line-height: 1.4; }
+
+.stack {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px 24px;
+  margin-top: clamp(40px, 6vw, 72px);
+}
+.stack .mono { color: var(--ink-soft); margin-bottom: 10px; }
+.stack li { font-size: 1rem; line-height: 1.7; }
+
+/* Experience: the route */
+.experience { background: var(--paper-raised); }
+.legs { --p: 1; position: relative; }
+.legs::before, .legs::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 0;
+  left: 8.5rem;
+  width: 2px;
+  margin-left: -1px;
+}
+.legs::before { background: var(--rule); }
+.legs::after { background: var(--route); transform: scaleY(var(--p)); transform-origin: top; }
+.leg {
+  position: relative;
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  column-gap: 3rem;
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+.leg:last-child { padding-bottom: 0; }
+.leg::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 8.5rem;
+  top: 8px;
+  width: 13px;
+  height: 13px;
+  margin-left: -6.5px;
+  border-radius: 50%;
+  background: var(--route);
+  border: 2px solid var(--route);
+  box-shadow: 0 0 0 4px var(--paper-raised);
+  transition: background .25s;
+}
+.leg.ahead::before { background: var(--paper-raised); }
+.when { padding-top: 8px; color: var(--ink-soft); }
+.when span { display: block; }
+.role { margin-top: 4px; font-weight: 500; }
+.leg ul.points { margin-top: 16px; max-width: 64ch; }
+.points li { position: relative; padding-left: 18px; margin-top: 8px; color: var(--ink-soft); }
+.points li::before { content: "–"; position: absolute; left: 0; top: 0; color: var(--route); }
+.points strong { color: var(--ink); font-weight: 500; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.tags li { padding: 3px 8px; border: 1px solid var(--rule); font: 400 .75rem/1.4 var(--mono); color: var(--ink-soft); }
+
+/* Projects */
+.projects-list { border-top: 1px solid var(--rule); }
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 10px 32px;
+  padding-block: clamp(22px, 3vw, 34px);
+  border-bottom: 1px solid var(--rule);
+}
+.project p { color: var(--ink-soft); max-width: 56ch; }
+.project .award { display: block; margin-top: 10px; color: var(--route); }
+.project .link { display: inline-block; margin-top: 10px; font-weight: 500; color: var(--ink); }
+
+/* Recognition and education */
+.record { padding-top: 0; }
+.record-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 6px 32px;
+  padding-block: 18px;
+  border-top: 1px solid var(--rule);
+}
+.record-list .label { font-weight: 500; }
+.record-list .detail { color: var(--ink-soft); }
+.record-list .detail a { color: var(--ink); }
+.record-list li:last-child { border-bottom: 1px solid var(--rule); }
+.record + .record { margin-top: 0; }
+
+/* Contact */
+.contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--band);
+  color: var(--band-ink);
+  padding-block: clamp(80px, 13vw, 168px) 32px;
+  --contour: var(--band-contour);
+  --contour-index: var(--band-contour-index);
+}
+.contact canvas { z-index: -1; }
+.contact a:hover { color: var(--band-route); }
+.contact :focus-visible { outline-color: var(--band-route); }
+.contact .mono { color: var(--band-soft); }
+.contact h2 { max-width: 16em; margin-top: 14px; font-size: clamp(2.25rem, 6.4vw, 5.5rem); line-height: 1; letter-spacing: -.03em; }
+.email {
+  display: inline-block;
+  margin-top: clamp(24px, 4vw, 40px);
+  font: 300 clamp(1.125rem, 3.6vw, 2.5rem)/1.2 var(--serif);
+  color: var(--band-route);
+  overflow-wrap: anywhere;
+}
+.contact-links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 24px; }
+footer {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px;
+  margin-top: clamp(64px, 10vw, 128px);
+  padding-top: 16px;
+  border-top: 1px solid #e9eee92e;
+  color: var(--band-soft);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .split { grid-template-columns: minmax(0, 1fr); }
+  .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .intro-row { grid-template-columns: minmax(0, 1fr); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project, .record-list li { grid-template-columns: minmax(0, 1fr); }
+  .legs::before, .legs::after, .leg::before { left: 6px; }
+  .leg { grid-template-columns: minmax(0, 1fr); padding-left: 32px; }
+  .when { padding-top: 6px; margin-bottom: 6px; }
+  .when span { display: inline; }
+  .when span + span::before { content: " – "; }
+}
+@media (max-width: 420px) {
+  .stack { grid-template-columns: minmax(0, 1fr); }
+  nav ul { gap: 4px 11px; font-size: .6875rem; letter-spacing: .03em; }
+}
+
+/* Motion */
+@media (prefers-reduced-motion: no-preference) {
+  .chart path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.8s .25s cubic-bezier(.6, 0, .2, 1) forwards; }
+  .chart .here, .fix-bkk { opacity: 0; animation: arrive .5s 1.8s forwards; }
+  .chart .ring { transform-box: fill-box; transform-origin: center; animation: ping 3.2s 2s ease-out infinite; opacity: 0; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes arrive { to { opacity: 1; } }
+  @keyframes ping { 0% { opacity: .9; transform: scale(.35); } 70%, 100% { opacity: 0; transform: scale(1); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chart .ring { display: none; }
+}
+
+@media print {
+  :root {
+    --paper: #fff; --paper-raised: #fff; --ink: #000; --ink-soft: #333; --rule: #bbb; --route: #000;
+    --band: #fff; --band-ink: #000; --band-soft: #333; --band-route: #000;
+  }
+  canvas, .chart, nav, .actions, .skip { display: none !important; }
+  .hero { min-height: 0; }
+  h1 { font-size: 3rem; }
+  section { padding-block: 18px; }
+  .leg, .project, .record-list li { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero">
+  <canvas class="contours" data-live aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <nav aria-label="Primary">
+      <a class="mark mono" href="#top" id="top">Moshiur Rahman</a>
+      <ul class="mono">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#recognition">Recognition</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="chart" role="img" aria-label="A route on a chart from Dhaka, Bangladesh, to Bangkok, Thailand">
+      <svg viewBox="0 0 500 300" aria-hidden="true">
+        <path pathLength="1" d="M70 58 C 190 62, 300 130, 430 242"/>
+        <circle class="ring" cx="430" cy="242" r="30"/>
+        <circle class="origin" cx="70" cy="58" r="6"/>
+        <circle class="here" cx="430" cy="242" r="8"/>
+      </svg>
+      <div class="fix fix-dac" aria-hidden="true"><b>DAC</b>23.81°N 90.41°E</div>
+      <div class="fix fix-bkk" aria-hidden="true"><b>BKK</b>13.76°N 100.50°E</div>
+    </div>
+
+    <div class="intro">
+      <h1>Moshiur <em>Rahman</em></h1>
+      <div class="intro-row">
+        <p class="lede">Senior full-stack software engineer, building systems that scale and teams that ship. Based in Bangkok.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn" href="https://github.com/DreamRunnerMoshi">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/mosh2ii">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="about" aria-labelledby="about-title">
+    <div class="wrap split">
+      <h2 id="about-title">About</h2>
+      <div>
+        <p class="statement">Over ten years of full-stack work across a wide range of stacks and domains, most recently guiding teams through MVP launches on a high-growth travel platform. Beyond shipping features, I help developers raise the bar on code review, tech debt, performance and test coverage.</p>
+        <dl class="stats">
+          <div><dt>10+</dt><dd>years in full-stack development</dd></div>
+          <div><dt>4+</dt><dd>product launches guided from MVP</dd></div>
+          <div><dt>20+</dt><dd>repositories contributed to at Agoda</dd></div>
+          <div><dt>1,000s</dt><dd>of extra bookings a month from legacy bug fixes</dd></div>
+        </dl>
+        <div class="stack">
+          <div>
+            <p class="mono">Systems</p>
+            <ul>
+              <li>Distributed systems</li>
+              <li>Microservices</li>
+              <li>RabbitMQ</li>
+              <li>C# and Dapper</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mono">Data &amp; geo</p>
+            <ul>
+              <li>Postgres</li>
+              <li>PostGIS</li>
+              <li>Google Maps API</li>
+              <li>Apache Lucene</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mono">Client</p>
+            <ul>
+              <li>Ionic</li>
+              <li>Cross-platform mobile</li>
+              <li>D3.js</li>
+              <li>C3.js</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mono">Learning &amp; vision</p>
+            <ul>
+              <li>Python</li>
+              <li>PyTorch</li>
+              <li>OpenCV</li>
+              <li>NLP and data analysis</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience" id="experience" aria-labelledby="experience-title">
+    <div class="wrap split">
+      <h2 id="experience-title">Experience</h2>
+      <ol class="legs" style="list-style:none;margin:0;padding:0">
+        <li class="leg">
+          <p class="when mono"><span>Oct 2021</span><span>Present</span></p>
+          <div>
+            <h3>Agoda</h3>
+            <p class="role">Senior Full Stack Software Engineer · Booking Holdings</p>
+            <ul class="points">
+              <li>Solved legacy bugs, <strong>increasing bookings by thousands per month</strong>.</li>
+              <li>Contributed to <strong>20+ repositories</strong>, designing products for performance and scalability.</li>
+              <li>Led product development from requirement analysis through design, development and maintenance.</li>
+              <li>Enhanced the email delivery system with async mechanisms on RabbitMQ.</li>
+              <li>Implemented idempotency keys in microservices to improve performance and avoid redundant computation.</li>
+              <li>Improved bug investigation through correlation IDs and a no-retry policy with third-party services.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>Microservices</li><li>RabbitMQ</li><li>Idempotency</li>
+            </ul>
+          </div>
+        </li>
+        <li class="leg">
+          <p class="when mono"><span>Nov 2018</span><span>Sep 2021</span></p>
+          <div>
+            <h3>Cefalo Bangladesh</h3>
+            <p class="role">Software Engineer</p>
+            <ul class="points">
+              <li>Worked with cross-functional teams to deliver scalable features.</li>
+              <li>Integrated third-party KYC services for customer verification and bill payment systems.</li>
+              <li>Developed and maintained GIS-based search features with the Google Maps API.</li>
+              <li>Built database-based queue mechanisms to improve third-party callback processing.</li>
+              <li>Improved airtime processing by introducing random nonce generation.</li>
+              <li>Resolved key bugs for faster, frictionless customer onboarding on a media platform.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>Google Maps API</li><li>KYC</li><li>Payments</li>
+            </ul>
+          </div>
+        </li>
+        <li class="leg">
+          <p class="when mono"><span>Jul 2016</span><span>Nov 2018</span></p>
+          <div>
+            <h3>Streams Tech</h3>
+            <p class="role">Software Engineer</p>
+            <ul class="points">
+              <li>Worked on <strong>STREAM</strong>, a USAID-funded survey and GIS data collection system used by NGOs including CARE Bangladesh, World Vision and Helen Keller International.</li>
+              <li>Designed and developed two-way data syncing between mobile apps and cloud services.</li>
+              <li>Built an Ionic mobile app for offline data collection.</li>
+              <li>Designed GIS databases with PostGIS to store and publish geographic data.</li>
+              <li>Implemented a dynamic form data system with Postgres and Dapper.</li>
+              <li>Created data visualization dashboards with D3.js and C3.js.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>PostGIS</li><li>Postgres</li><li>Dapper</li><li>Ionic</li><li>D3.js</li><li>C3.js</li>
+            </ul>
+          </div>
+        </li>
+        <li class="leg">
+          <p class="when mono"><span>Jan 2015</span><span>Jun 2016</span></p>
+          <div>
+            <h3>Icebreakers Studio</h3>
+            <p class="role">Software Engineer and Co-founder</p>
+            <ul class="points">
+              <li>Designed the system architecture and built cross-platform mobile apps.</li>
+              <li>Developed a location-based search engine with Apache Lucene and C#.</li>
+              <li>Built and distributed SaaS products for various use cases.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>Apache Lucene</li><li>C#</li><li>SaaS</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-title">
+    <div class="wrap split">
+      <h2 id="projects-title">Projects</h2>
+      <div class="projects-list">
+        <article class="project">
+          <h3>Crop Alert</h3>
+          <div>
+            <p>Helps farmers predict crop diseases using crowdsourced reports and NASA satellite data.</p>
+            <span class="award mono">4th · NASA Space Apps Challenge 2015, Bangladesh</span>
+            <a class="link" href="https://2015.spaceappschallenge.org/project/the-farmers">View the project</a>
+          </div>
+        </article>
+        <article class="project">
+          <h3>Eye Controlled Game</h3>
+          <div>
+            <p>A car-racing game steered by eye movements, built with OpenCV and the jMonkey game engine.</p>
+          </div>
+        </article>
+        <article class="project">
+          <h3>Doorbin</h3>
+          <div>
+            <p>A Wikipedia-based search engine built on Lucene that returns structured search results.</p>
+          </div>
+        </article>
+        <article class="project">
+          <h3>Lloyd List</h3>
+          <div>
+            <p>A location-based C2C mobile app for buying and selling, with geolocation filtering.</p>
+            <span class="award mono">4th · US creative idea fair</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="record" id="recognition" aria-labelledby="recognition-title">
+    <div class="wrap split">
+      <h2 id="recognition-title">Recognition</h2>
+      <ul class="record-list">
+        <li>
+          <span class="label">Publication</span>
+          <span class="detail"><a href="https://ieeexplore.ieee.org/document/7083533">MapBeing: An architecture for manipulating and publishing vector data in web-based Geographic Information Systems</a>, IEEE</span>
+        </li>
+        <li>
+          <span class="label">ACM ICPC 2013</span>
+          <span class="detail">Regional contest participant, solving 5 problems</span>
+        </li>
+        <li>
+          <span class="label">Competitive programming</span>
+          <span class="detail">Notable positions on UVa Online Judge, TopCoder, LeetCode, HackerRank, Project Euler and Rosalind</span>
+        </li>
+        <li>
+          <span class="label">Training instructor</span>
+          <span class="detail">Programming contest instructor at the University of Dhaka</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="record" aria-labelledby="education-title">
+    <div class="wrap split">
+      <h2 id="education-title">Education</h2>
+      <ul class="record-list">
+        <li>
+          <span class="label">B.Sc. in Software Engineering, 2014</span>
+          <span class="detail">Institute of Information Technology, University of Dhaka. CGPA 3.48. Coursework in algorithms, combinatorial optimization, parallel computing, distributed systems, AI, information retrieval, security, and pattern recognition.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<div class="contact" id="contact">
+  <canvas class="contours" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="mono">Bangkok, Thailand</p>
+    <h2>Let’s build something worth the trip.</h2>
+    <a class="email" href="mailto:rahman.e.moshi@gmail.com">rahman.e.moshi@gmail.com</a>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/mosh2ii">LinkedIn</a>
+      <a href="https://github.com/DreamRunnerMoshi">GitHub</a>
+    </div>
+    <footer class="mono">
+      <span>© <span id="year">2026</span> Moshiur Rahman</span>
+      <span>13.7563°N 100.5018°E</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  var scheme = matchMedia('(prefers-color-scheme: dark)');
+  var finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Seeded 3D Perlin noise, so the terrain is the same on every visit.
+  var perm = new Uint8Array(512);
+  (function () {
+    var p = [], seed = 1337, i, j, t;
+    for (i = 0; i < 256; i++) p[i] = i;
+    for (i = 255; i > 0; i--) {
+      seed = (seed * 16807) % 2147483647;
+      j = seed % (i + 1);
+      t = p[i]; p[i] = p[j]; p[j] = t;
+    }
+    for (i = 0; i < 512; i++) perm[i] = p[i & 255];
+  })();
+  function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function grad(h, x, y, z) {
+    h &= 15;
+    var u = h < 8 ? x : y, v = h < 4 ? y : (h === 12 || h === 14 ? x : z);
+    return ((h & 1) ? -u : u) + ((h & 2) ? -v : v);
+  }
+  function noise(x, y, z) {
+    var X = Math.floor(x), Y = Math.floor(y), Z = Math.floor(z);
+    x -= X; y -= Y; z -= Z;
+    X &= 255; Y &= 255; Z &= 255;
+    var u = fade(x), v = fade(y), w = fade(z);
+    var A = perm[X] + Y, AA = perm[A] + Z, AB = perm[A + 1] + Z;
+    var B = perm[X + 1] + Y, BA = perm[B] + Z, BB = perm[B + 1] + Z;
+    return lerp(
+      lerp(
+        lerp(grad(perm[AA], x, y, z), grad(perm[BA], x - 1, y, z), u),
+        lerp(grad(perm[AB], x, y - 1, z), grad(perm[BB], x - 1, y - 1, z), u), v),
+      lerp(
+        lerp(grad(perm[AA + 1], x, y, z - 1), grad(perm[BA + 1], x - 1, y, z - 1), u),
+        lerp(grad(perm[AB + 1], x, y - 1, z - 1), grad(perm[BB + 1], x - 1, y - 1, z - 1), u), v),
+      w);
+  }
+
+  var CELL = 13, SCALE = 1 / 460, STEP = 0.075, INDEX_EVERY = 5, FRAME_MS = 1000 / 24;
+
+  function Contours(canvas) {
+    var ctx = canvas.getContext('2d');
+    var live = canvas.hasAttribute('data-live');
+    var w = 0, h = 0, cols = 0, rows = 0, field = null;
+    var time = live ? 3 : 11, last = 0, visible = true, raf = 0;
+    var pointer = { x: 0, y: 0, on: false, amp: 0 };
+    var offset = live ? 0 : 40;
+
+    function resize() {
+      var r = canvas.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+      w = r.width; h = r.height;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(w / CELL) + 2;
+      rows = Math.ceil(h / CELL) + 2;
+      field = new Float32Array(cols * rows);
+    }
+
+    function sample() {
+      var i = 0, a = pointer.amp, px = pointer.x, py = pointer.y;
+      for (var r = 0; r < rows; r++) {
+        var y = r * CELL;
+        for (var c = 0; c < cols; c++) {
+          var x = c * CELL;
+          var v = noise(x * SCALE + offset, y * SCALE, time) +
+                  0.42 * noise(x * SCALE * 2.1, y * SCALE * 2.1 + offset, time * 1.4);
+          if (a > 0.002) {
+            var dx = x - px, dy = y - py;
+            v += a * 0.62 * Math.exp(-(dx * dx + dy * dy) / 26000);
+          }
+          field[i++] = v;
+        }
+      }
+    }
+
+    // Marching squares: one stroked path per height level, with every fifth
+    // line drawn heavier like the index contours on a survey map.
+    function trace(level) {
+      var f = field, n = cols, s = CELL;
+      for (var r = 0; r < rows - 1; r++) {
+        for (var c = 0; c < n - 1; c++) {
+          var i = r * n + c;
+          var a = f[i], b = f[i + 1], d = f[i + n], e = f[i + n + 1];
+          var code = (a > level ? 8 : 0) | (b > level ? 4 : 0) | (e > level ? 2 : 0) | (d > level ? 1 : 0);
+          if (code === 0 || code === 15) continue;
+          var x = c * s, y = r * s;
+          var tx = x + s * (level - a) / (b - a), bx = x + s * (level - d) / (e - d);
+          var ly = y + s * (level - a) / (d - a), ry = y + s * (level - b) / (e - b);
+          switch (code) {
+            case 1: case 14: ctx.moveTo(x, ly); ctx.lineTo(bx, y + s); break;
+            case 2: case 13: ctx.moveTo(bx, y + s); ctx.lineTo(x + s, ry); break;
+            case 3: case 12: ctx.moveTo(x, ly); ctx.lineTo(x + s, ry); break;
+            case 4: case 11: ctx.moveTo(tx, y); ctx.lineTo(x + s, ry); break;
+            case 6: case 9: ctx.moveTo(tx, y); ctx.lineTo(bx, y + s); break;
+            case 7: case 8: ctx.moveTo(x, ly); ctx.lineTo(tx, y); break;
+            case 5: ctx.moveTo(x, ly); ctx.lineTo(tx, y); ctx.moveTo(bx, y + s); ctx.lineTo(x + s, ry); break;
+            case 10: ctx.moveTo(x, ly); ctx.lineTo(bx, y + s); ctx.moveTo(tx, y); ctx.lineTo(x + s, ry); break;
+          }
+        }
+      }
+    }
+
+    function draw() {
+      if (!w || !h) return;
+      var css = getComputedStyle(canvas);
+      var thin = css.getPropertyValue('--contour'), bold = css.getPropertyValue('--contour-index');
+      sample();
+      ctx.clearRect(0, 0, w, h);
+      for (var k = -14; k <= 14; k++) {
+        var isIndex = ((k % INDEX_EVERY) + INDEX_EVERY) % INDEX_EVERY === 0;
+        ctx.beginPath();
+        trace(k * STEP + 0.0137);
+        ctx.strokeStyle = isIndex ? bold : thin;
+        ctx.lineWidth = isIndex ? 1.15 : 0.75;
+        ctx.stroke();
+      }
+    }
+
+    function shouldAnimate() { return live && !reduced.matches && visible; }
+
+    function tick(now) {
+      raf = 0;
+      if (!shouldAnimate()) return;
+      raf = requestAnimationFrame(tick);
+      if (now - last < FRAME_MS) return;
+      var dt = Math.min(now - last, 100) / 1000;
+      last = now;
+      time += dt * 0.022;
+      pointer.amp += ((pointer.on ? 1 : 0) - pointer.amp) * 0.09;
+      draw();
+    }
+    function start() { if (!raf && shouldAnimate()) raf = requestAnimationFrame(tick); }
+
+    resize();
+    draw();
+    start();
+
+    var resizeTimer;
+    addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { resize(); draw(); }, 120);
+    });
+    scheme.addEventListener('change', draw);
+    reduced.addEventListener('change', function () { draw(); start(); });
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      start();
+    }).observe(canvas);
+
+    if (live) {
+      addEventListener('pointermove', function (e) {
+        if (!finePointer.matches || reduced.matches) return;
+        var r = canvas.getBoundingClientRect();
+        pointer.x = e.clientX - r.left;
+        pointer.y = e.clientY - r.top;
+        pointer.on = pointer.y >= 0 && pointer.y <= r.height;
+      }, { passive: true });
+      document.documentElement.addEventListener('pointerleave', function () { pointer.on = false; });
+    }
+  }
+
+  var canvases = document.querySelectorAll('canvas.contours');
+  for (var i = 0; i < canvases.length; i++) Contours(canvases[i]);
+
+  // Flies the route down the experience timeline as the page scrolls.
+  var legs = document.querySelector('.legs');
+  var stops = legs.querySelectorAll('.leg');
+  var queued = false;
+  function updateRoute() {
+    queued = false;
+    var r = legs.getBoundingClientRect();
+    var reach = innerHeight * 0.62 - r.top;
+    legs.style.setProperty('--p', Math.max(0, Math.min(1, reach / r.height)).toFixed(4));
+    for (var i = 0; i < stops.length; i++) {
+      stops[i].classList.toggle('ahead', stops[i].getBoundingClientRect().top - r.top + 8 > reach);
+    }
+  }
+  function queueRoute() { if (!queued) { queued = true; requestAnimationFrame(updateRoute); } }
+  addEventListener('scroll', queueRoute, { passive: true });
+  addEventListener('resize', queueRoute);
+  addEventListener('beforeprint', function () {
+    legs.style.setProperty('--p', 1);
+    for (var i = 0; i < stops.length; i++) stops[i].classList.remove('ahead');
+  });
+  updateRoute();
+})();
+</script>
+</body>
+</html>
