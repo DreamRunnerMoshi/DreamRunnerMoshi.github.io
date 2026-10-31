@@ -303,10 +303,10 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 .record-list .label { font-weight: 500; font-size: .9375rem; }
 .record-list .detail { color: var(--ink-soft); font-size: .9375rem; }
 
-.stack { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 24px; }
+.stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .stack .meta { margin-bottom: 6px; color: var(--ink); font-weight: 500; }
 .stack .meta .i, .record-list .label .i, .project .award .i { color: var(--accent); }
-.stack li { color: var(--ink-soft); font-size: .9375rem; line-height: 1.65; }
+.stack li { padding-left: .75em; text-indent: -.75em; color: var(--ink-soft); font-size: .9375rem; line-height: 1.65; }
 
 .contact-note { margin-bottom: 16px; font-size: 1.0625rem; }
 
@@ -727,36 +727,63 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
           <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-bot"/></svg>LLM research</p>
           <ul>
             <li>Python</li>
-            <li>LiteLLM</li>
+            <li>Anthropic API</li>
+            <li>Claude Code plugins</li>
+            <li>LiteLLM and OpenRouter</li>
             <li>LangChain</li>
+            <li>mini-SWE-agent</li>
             <li>SWE-bench and GAIA</li>
           </ul>
         </div>
         <div>
-          <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-server"/></svg>Systems</p>
+          <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Machine learning</p>
+          <ul>
+            <li>PyTorch</li>
+            <li>Hugging Face Transformers</li>
+            <li>PEFT for LoRA fine-tuning</li>
+            <li>OpenCV</li>
+            <li>pandas and Matplotlib</li>
+          </ul>
+        </div>
+        <div>
+          <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>Backend</p>
           <ul>
             <li>C# and .NET Core</li>
             <li>Scala</li>
+            <li>Django and FastAPI</li>
+            <li>Entity Framework and Dapper</li>
+            <li>MassTransit Saga</li>
+            <li>Ocelot API Gateway</li>
+            <li>NUnit and ScalaTest</li>
+          </ul>
+        </div>
+        <div>
+          <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-server"/></svg>Infrastructure</p>
+          <ul>
             <li>Docker and Kubernetes</li>
             <li>Grafana</li>
+            <li>GitLab and Azure Pipelines</li>
           </ul>
         </div>
         <div>
           <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-database"/></svg>Data &amp; geo</p>
           <ul>
             <li>PostgreSQL and SQL Server</li>
+            <li>Neo4j</li>
             <li>PostGIS</li>
             <li>GDAL</li>
             <li>GeoServer</li>
+            <li>Google Maps API</li>
           </ul>
         </div>
         <div>
-          <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-layout"/></svg>Web</p>
+          <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-layout"/></svg>Web &amp; mobile</p>
           <ul>
             <li>React and TypeScript</li>
-            <li>Angular</li>
+            <li>Angular and AngularJS</li>
             <li>GraphQL</li>
             <li>D3.js</li>
+            <li>Ionic</li>
           </ul>
         </div>
       </div>
