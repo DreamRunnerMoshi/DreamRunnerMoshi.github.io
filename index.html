@@ -39,6 +39,7 @@
   --ink-soft: #4d5a66;
   --rule: #dfe3e8;
   --accent: #1f4e8c;
+  --tint: #edf2f9;
 
   --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
   --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -73,6 +74,36 @@ a:hover { text-decoration-color: currentColor; }
 
 .wrap { width: 100%; max-width: 1080px; margin-inline: auto; padding-inline: var(--gutter); }
 
+/* Icons */
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.i {
+  display: inline-block;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  margin-right: .4em;
+  vertical-align: -.125em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.i .solid, symbol .solid { fill: currentColor; stroke: none; }
+.tile {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--tint);
+  color: var(--accent);
+  font-size: 20px;
+}
+.tile .i { margin: 0; }
+
 /* Header */
 .site-head {
   position: sticky;
@@ -101,11 +132,14 @@ h1 { font: 400 clamp(2.5rem, 5.5vw, 3.75rem)/1.08 var(--serif); letter-spacing: 
 .lede { max-width: 62ch; margin-top: 16px; color: var(--ink-soft); font-size: 1.125rem; line-height: 1.55; }
 .intro-links { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 22px; font-weight: 500; }
 .intro-links .place { color: var(--ink-soft); font-weight: 400; }
+.intro-links a, .refs a, .project .link { text-decoration-color: transparent; }
+.intro-links a:hover, .refs a:hover, .project .link:hover { text-decoration-color: currentColor; }
 
 /* Sections */
 section { padding-block: clamp(40px, 6vw, 64px); border-top: 1px solid var(--rule); }
 .split { display: grid; grid-template-columns: 2.5fr 9.5fr; gap: 20px clamp(24px, 4vw, 48px); }
-h2 { font: 400 1.5rem/1.2 var(--serif); letter-spacing: -.008em; }
+h2 { display: flex; align-items: flex-start; gap: 10px; font: 400 1.5rem/1.2 var(--serif); letter-spacing: -.008em; }
+h2 .i { width: 22px; height: 22px; margin: 3px 0 0; color: var(--accent); }
 h3 { font: 500 1.1875rem/1.3 var(--serif); }
 
 .statement { max-width: 66ch; font-size: 1.0625rem; }
@@ -116,6 +150,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
   gap: 24px clamp(20px, 3vw, 32px);
   margin-top: 32px;
 }
+.themes h3 { margin-top: 12px; }
 .themes p { margin-top: 6px; color: var(--ink-soft); font-size: .9375rem; }
 
 .refs { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; font-size: .9375rem; font-weight: 500; }
@@ -138,6 +173,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 
 /* Projects */
 .feature { padding-bottom: 28px; }
+.feature-head, .project-head { display: flex; align-items: center; align-self: start; gap: 12px; }
 .feature h3 { margin-top: 2px; font-size: 1.375rem; }
 .feature > p:not(.meta):not(.refs) { max-width: 66ch; margin-top: 8px; color: var(--ink-soft); }
 .stats {
@@ -151,7 +187,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 .stats dt { font: 400 1.5rem/1.15 var(--serif); }
 .stats dd { margin-top: 4px; color: var(--ink-soft); font-size: .875rem; line-height: 1.4; }
 .tags { display: flex; flex-wrap: wrap; gap: 4px 6px; margin-top: 10px; color: var(--ink-soft); font-size: .875rem; }
-.tags li + li::before { content: "· "; }
+.tags li:not(:last-child)::after { content: " ·"; }
 
 .project {
   display: grid;
@@ -202,6 +238,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 
 .stack { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 24px; }
 .stack .meta { margin-bottom: 6px; color: var(--ink); font-weight: 500; }
+.stack .meta .i, .record-list .label .i, .project .award .i { color: var(--accent); }
 .stack li { color: var(--ink-soft); font-size: .9375rem; line-height: 1.65; }
 
 .contact-note { margin-bottom: 16px; font-size: 1.0625rem; }
@@ -238,6 +275,32 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 </style>
 </head>
 <body>
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.5L4.6 18.7A2.2 2.2 0 0 0 6.5 22h11a2.2 2.2 0 0 0 1.9-3.3L14 9.5V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 13h20"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/><rect width="16" height="12" x="4" y="8" rx="2"/></symbol>
+  <symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15v4"/><path d="M21 17h-4"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></symbol>
+  <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path class="solid" d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.22.7.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5Z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path class="solid" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-head">
@@ -263,30 +326,33 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
     <p class="position">Researcher and Software Engineer</p>
     <p class="lede">I build and evaluate LLM agent systems for software engineering, and work on language tools for Bangla. Member of the DSSE Research Group, Institute of Information Technology, University of Dhaka.</p>
     <p class="intro-links">
-      <span class="place">Carbondale, Illinois</span>
-      <a href="mailto:rahman.e.moshi@gmail.com">Email</a>
-      <a href="https://github.com/DreamRunnerMoshi">GitHub</a>
-      <a href="https://www.linkedin.com/in/mosh2i">LinkedIn</a>
+      <span class="place"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Carbondale, Illinois</span>
+      <a href="mailto:rahman.e.moshi@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Email</a>
+      <a href="https://github.com/DreamRunnerMoshi"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+      <a href="https://www.linkedin.com/in/mosh2i"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
     </p>
     </div>
   </div>
 
   <section class="about" id="research" aria-labelledby="research-title">
     <div class="wrap split">
-      <h2 id="research-title">Research</h2>
+      <h2 id="research-title"><svg class="i" aria-hidden="true"><use href="#i-flask"/></svg><span>Research</span></h2>
       <div>
         <p class="statement">I study how LLM systems behave when they do real work, and I test them against independent evaluation harnesses instead of their own reports. That work draws on more than ten years of building and operating large-scale distributed systems.</p>
         <p class="affiliation">Current member of the <a href="https://dsse.iit.du.ac.bd">Distributed Systems and Software Engineering (DSSE) Research Group</a>, Institute of Information Technology, University of Dhaka, led by Dr. Kazi Muheymin-Us-Sakib.</p>
         <div class="themes">
           <div>
+            <span class="tile"><svg class="i" aria-hidden="true"><use href="#i-bot"/></svg></span>
             <h3>LLM agents for software engineering</h3>
             <p>Emergent delegation between frontier and low-cost models, cost and accuracy trade-offs, and verification that does not trust self-reported success.</p>
           </div>
           <div>
+            <span class="tile"><svg class="i" aria-hidden="true"><use href="#i-languages"/></svg></span>
             <h3>Bangla language AI</h3>
             <p>Benchmark datasets for evaluating LLMs in Bangla, and tokenizers designed to handle colloquial accent.</p>
           </div>
           <div>
+            <span class="tile"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg></span>
             <h3>Distributed and geographic systems</h3>
             <p>Architectures for publishing and manipulating vector data on the web, and scalable backend systems in production.</p>
           </div>
@@ -297,7 +363,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 
   <section class="record" id="publications" aria-labelledby="publications-title">
     <div class="wrap split">
-      <h2 id="publications-title">Publications</h2>
+      <h2 id="publications-title"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg><span>Publications</span></h2>
       <ol class="pubs">
         <li class="pub">
           <p class="when meta">2025</p>
@@ -306,7 +372,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
             <p class="byline"><strong>Moshi, R.</strong></p>
             <p class="status meta">In process of publication</p>
             <p class="abstract">A dataset of 3,000 multiple-choice questions from Bangladesh Civil Service exams across nine subjects. On an initial 200-question test, accuracy was 79.5% for DeepSeek, 61.5% for OpenAI, 59.5% for Gemini and 52.5% for Llama.</p>
-            <p class="refs"><a href="https://mosh2i.com/llm_in_bangla/">Project page</a><a href="https://github.com/DreamRunnerMoshi/llm_in_bangla">Code</a></p>
+            <p class="refs"><a href="https://mosh2i.com/llm_in_bangla/"><svg class="i" aria-hidden="true"><use href="#i-external"/></svg>Project page</a><a href="https://github.com/DreamRunnerMoshi/llm_in_bangla"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>Code</a></p>
           </div>
         </li>
         <li class="pub">
@@ -316,7 +382,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
             <p class="byline"><strong>Moshi, R.</strong></p>
             <p class="status meta">In process of publication</p>
             <p class="abstract">A BPE tokenizer trained on Bangla Wikipedia alongside novels and the works of Rabindranath Tagore, so that it captures colloquial as well as formal text.</p>
-            <p class="refs"><a href="https://github.com/DreamRunnerMoshi/BongoTokenizer">Code</a></p>
+            <p class="refs"><a href="https://github.com/DreamRunnerMoshi/BongoTokenizer"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>Code</a></p>
           </div>
         </li>
         <li class="pub">
@@ -325,7 +391,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
             <h3>MapBeing: An architecture for manipulating and publishing vector data in web based Geographic Information System</h3>
             <p class="byline"><strong>Moshi, R.</strong>, Nahar, N., Rahman, R., and Sakib, K.</p>
             <p class="venue">The 8th International Conference on Software, Knowledge, Information Management and Applications (SKIMA 2014), pp. 1–7, IEEE.</p>
-            <p class="refs"><a href="https://ieeexplore.ieee.org/document/7083533">IEEE Xplore</a><a href="https://doi.org/10.1109/SKIMA.2014.7083533">DOI</a></p>
+            <p class="refs"><a href="https://ieeexplore.ieee.org/document/7083533"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg>IEEE Xplore</a><a href="https://doi.org/10.1109/SKIMA.2014.7083533"><svg class="i" aria-hidden="true"><use href="#i-external"/></svg>DOI</a></p>
           </div>
         </li>
       </ol>
@@ -334,57 +400,74 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 
   <section id="projects" aria-labelledby="projects-title">
     <div class="wrap split">
-      <h2 id="projects-title">Projects</h2>
+      <h2 id="projects-title"><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg><span>Projects</span></h2>
       <div>
         <article class="feature">
-          <p class="meta feature-meta">2026 · Two-tier LLM agent architecture</p>
-          <h3>Gru &amp; Minion</h3>
+          <div class="feature-head">
+            <span class="tile"><svg class="i" aria-hidden="true"><use href="#i-bot"/></svg></span>
+            <div>
+              <p class="meta feature-meta">2026 · Two-tier LLM agent architecture</p>
+              <h3>Gru &amp; Minion</h3>
+            </div>
+          </div>
           <p>A frontier model, Gru, owns the task end to end and chooses when to delegate bounded work to a cheap model, Minion. Gru re-runs the checks itself instead of trusting the agent’s report. I benchmarked it on the real SWE-bench and GAIA harnesses with model pairs from three vendors, and all three matched or beat their solo baseline on SWE-bench.</p>
           <dl class="stats">
             <div><dt>92.3%</dt><dd>of tokens moved to the cheap model, in the best model pair</dd></div>
             <div><dt>14% → 52%</dt><dd>GAIA resolve rate from swapping vendor alone, on the same pair</dd></div>
             <div><dt>Task fit</dt><dd>not forceful wording, drove delegation in a 12-run prompt ablation</dd></div>
           </dl>
-          <p class="refs"><a href="https://github.com/DreamRunnerMoshi/gru_minion">Code and experiments</a></p>
+          <p class="refs"><a href="https://github.com/DreamRunnerMoshi/gru_minion"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>Code and experiments</a></p>
           <ul class="tags" aria-label="Technologies">
             <li>Python</li><li>LiteLLM</li><li>OpenRouter</li><li>Docker</li><li>Claude Code plugin</li>
           </ul>
         </article>
         <div class="projects-list">
           <article class="project">
-            <div>
-              <p class="meta project-year">2024</p>
-              <h3>Alchemist</h3>
+            <div class="project-head">
+              <span class="tile"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg></span>
+              <div>
+                <p class="meta project-year">2024</p>
+                <h3>Alchemist</h3>
+              </div>
             </div>
             <div>
               <p>An AI assistant that orchestrates LLMs, semantic embeddings and a custom BPE tokenizer in a multi-source agentic pipeline to resolve customer queries.</p>
-              <a class="link" href="http://www.alchemyist.ai">Visit Alchemist</a>
+              <a class="link" href="http://www.alchemyist.ai"><svg class="i" aria-hidden="true"><use href="#i-external"/></svg>Visit Alchemist</a>
             </div>
           </article>
           <article class="project">
-            <div>
-              <p class="meta project-year">2015</p>
-              <h3>Crop Alert</h3>
+            <div class="project-head">
+              <span class="tile"><svg class="i" aria-hidden="true"><use href="#i-sprout"/></svg></span>
+              <div>
+                <p class="meta project-year">2015</p>
+                <h3>Crop Alert</h3>
+              </div>
             </div>
             <div>
               <p>A prediction algorithm that warns farmers before crop diseases reach their fields, using NASA historical data, crowdsourced reports and machine learning.</p>
-              <span class="award meta">Honorable Mention · NASA Space Apps Challenge 2015, Bangladesh</span>
-              <a class="link" href="https://2015.spaceappschallenge.org/project/the-farmers">View the project</a>
+              <span class="award meta"><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg>Honorable Mention · NASA Space Apps Challenge 2015, Bangladesh</span>
+              <a class="link" href="https://2015.spaceappschallenge.org/project/the-farmers"><svg class="i" aria-hidden="true"><use href="#i-external"/></svg>View the project</a>
             </div>
           </article>
           <article class="project">
-            <div>
-              <p class="meta project-year">2013–2014</p>
-              <h3>Doorbin</h3>
+            <div class="project-head">
+              <span class="tile"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg></span>
+              <div>
+                <p class="meta project-year">2013–2014</p>
+                <h3>Doorbin</h3>
+              </div>
             </div>
             <div>
               <p>A Wikipedia-based search engine indexed with Lucene, applying the Vector Space Model for document ranking.</p>
             </div>
           </article>
           <article class="project">
-            <div>
-              <p class="meta project-year">2013–2014</p>
-              <h3>Eye Controlled Game</h3>
+            <div class="project-head">
+              <span class="tile"><svg class="i" aria-hidden="true"><use href="#i-eye"/></svg></span>
+              <div>
+                <p class="meta project-year">2013–2014</p>
+                <h3>Eye Controlled Game</h3>
+              </div>
             </div>
             <div>
               <p>A car game controlled by eye movement, built with OpenCV and the jMonkey engine.</p>
@@ -405,7 +488,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 
   <section class="experience" id="experience" aria-labelledby="experience-title">
     <div class="wrap split">
-      <h2 id="experience-title">Experience</h2>
+      <h2 id="experience-title"><svg class="i" aria-hidden="true"><use href="#i-briefcase"/></svg><span>Experience</span></h2>
       <ol class="legs">
         <li class="leg">
           <p class="when meta"><span>Oct 2021</span><span>Jun 2026</span></p>
@@ -465,7 +548,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 
   <section class="record" id="education" aria-labelledby="education-title">
     <div class="wrap split">
-      <h2 id="education-title">Education</h2>
+      <h2 id="education-title"><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg><span>Education</span></h2>
       <ul class="record-list">
         <li>
           <span class="label">B.Sc. in Software Engineering, 2011–2014</span>
@@ -477,7 +560,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 
   <section class="record" aria-labelledby="teaching-title">
     <div class="wrap split">
-      <h2 id="teaching-title">Teaching and contests</h2>
+      <h2 id="teaching-title"><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg><span>Teaching and contests</span></h2>
       <ul class="record-list">
         <li>
           <span class="label">Programming contest instructor</span>
@@ -497,10 +580,10 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 
   <section class="record" aria-labelledby="tools-title">
     <div class="wrap split">
-      <h2 id="tools-title">Tools</h2>
+      <h2 id="tools-title"><svg class="i" aria-hidden="true"><use href="#i-wrench"/></svg><span>Tools</span></h2>
       <div class="stack">
         <div>
-          <p class="meta">LLM research</p>
+          <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-bot"/></svg>LLM research</p>
           <ul>
             <li>Python</li>
             <li>LiteLLM</li>
@@ -509,7 +592,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
           </ul>
         </div>
         <div>
-          <p class="meta">Systems</p>
+          <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-server"/></svg>Systems</p>
           <ul>
             <li>C# and .NET Core</li>
             <li>Scala</li>
@@ -518,7 +601,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
           </ul>
         </div>
         <div>
-          <p class="meta">Data &amp; geo</p>
+          <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-database"/></svg>Data &amp; geo</p>
           <ul>
             <li>PostgreSQL and SQL Server</li>
             <li>PostGIS</li>
@@ -527,7 +610,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
           </ul>
         </div>
         <div>
-          <p class="meta">Web</p>
+          <p class="meta"><svg class="i" aria-hidden="true"><use href="#i-layout"/></svg>Web</p>
           <ul>
             <li>React and TypeScript</li>
             <li>Angular</li>
@@ -540,14 +623,14 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
   </section>
   <section id="contact" aria-labelledby="contact-title">
     <div class="wrap split">
-      <h2 id="contact-title">Contact</h2>
+      <h2 id="contact-title"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><span>Contact</span></h2>
       <div>
         <p class="contact-note">Open to research conversations and collaboration.</p>
         <ul class="record-list">
-          <li><span class="label">Email</span><span class="detail"><a href="mailto:rahman.e.moshi@gmail.com">rahman.e.moshi@gmail.com</a></span></li>
-          <li><span class="label">LinkedIn</span><span class="detail"><a href="https://www.linkedin.com/in/mosh2i">linkedin.com/in/mosh2i</a></span></li>
-          <li><span class="label">GitHub</span><span class="detail"><a href="https://github.com/DreamRunnerMoshi">github.com/DreamRunnerMoshi</a></span></li>
-          <li><span class="label">Location</span><span class="detail">Carbondale, Illinois</span></li>
+          <li><span class="label"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Email</span><span class="detail"><a href="mailto:rahman.e.moshi@gmail.com">rahman.e.moshi@gmail.com</a></span></li>
+          <li><span class="label"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</span><span class="detail"><a href="https://www.linkedin.com/in/mosh2i">linkedin.com/in/mosh2i</a></span></li>
+          <li><span class="label"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>GitHub</span><span class="detail"><a href="https://github.com/DreamRunnerMoshi">github.com/DreamRunnerMoshi</a></span></li>
+          <li><span class="label"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Location</span><span class="detail">Carbondale, Illinois</span></li>
         </ul>
       </div>
     </div>
