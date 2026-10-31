@@ -135,6 +135,26 @@ h1 { font: 400 clamp(2.5rem, 5.5vw, 3.75rem)/1.08 var(--serif); letter-spacing: 
 .intro-links a, .refs a, .project .link { text-decoration-color: transparent; }
 .intro-links a:hover, .refs a:hover, .project .link:hover { text-decoration-color: currentColor; }
 
+/* Neural network behind the intro, fainter under the text */
+.intro-band { position: relative; overflow: hidden; }
+.intro-band .intro { position: relative; }
+.network {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  --edge: max(var(--gutter), calc(50% - 540px + var(--gutter)));
+  --clear-to: calc(100% - var(--edge) - clamp(170px, 20vw, 216px) - 60px);
+  --fade: linear-gradient(90deg, #0009 0, transparent calc(var(--edge) - 16px), transparent var(--clear-to), #000 calc(var(--clear-to) + 110px));
+  -webkit-mask-image: var(--fade);
+  mask-image: var(--fade);
+}
+.network .links { fill: none; stroke: #d6e0ed; stroke-width: 1; }
+.network .signal { fill: none; stroke: #8fadd4; stroke-width: 1.5; }
+.network .nodes circle { fill: var(--paper); stroke: #c2d1e5; stroke-width: 1.25; }
+.network .nodes circle.on { fill: #8fadd4; stroke: #8fadd4; }
+.portrait { position: relative; box-shadow: 0 0 0 6px var(--paper); }
+
 /* Sections */
 section { padding-block: clamp(40px, 6vw, 64px); border-top: 1px solid var(--rule); }
 .split { display: grid; grid-template-columns: 2.5fr 9.5fr; gap: 20px clamp(24px, 4vw, 48px); }
@@ -259,6 +279,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
   .intro-links .place { flex-basis: 100%; }
   .intro { grid-template-columns: minmax(0, 1fr); }
   .portrait { grid-column: 1; width: 148px; }
+  .network { --fade: linear-gradient(180deg, #000 0, #000 150px, transparent 215px); }
   .intro-text { grid-column: 1; grid-row: 2; }
 }
 @media (max-width: 420px) {
@@ -266,7 +287,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 }
 
 @media print {
-  .site-head, .skip { display: none; }
+  .site-head, .skip, .network { display: none; }
   a { color: inherit; }
   .intro { padding-block: 0 16px; }
   section { padding-block: 14px; }
@@ -319,6 +340,12 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 </header>
 
 <main id="main">
+<div class="intro-band">
+  <svg class="network" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path class="links" d="M0 146L160 90M0 146L160 202M0 202L160 146M0 202L160 258M0 258L160 202M0 258L160 314M0 314L160 258M0 314L160 370M160 90L320 34M160 90L320 146M160 146L320 90M160 146L320 202M160 202L320 146M160 202L320 258M160 258L320 202M160 258L320 314M160 314L320 258M160 314L320 370M160 370L320 314M160 370L320 426M320 34L480 90M320 90L480 146M320 146L480 90M320 146L480 202M320 202L480 146M320 202L480 258M320 258L480 202M320 258L480 314M320 314L480 258M320 314L480 370M320 370L480 314M320 426L480 370M480 90L640 146M480 146L640 202M480 202L640 146M480 202L640 258M480 258L640 202M480 258L640 314M480 314L640 258M480 370L640 314M640 146L800 90M640 146L800 202M640 202L800 146M640 202L800 258M640 258L800 202M640 258L800 314M640 314L800 258M640 314L800 370M800 90L960 34M800 90L960 146M800 146L960 90M800 146L960 202M800 202L960 146M800 202L960 258M800 258L960 202M800 258L960 314M800 314L960 258M800 314L960 370M800 370L960 314M800 370L960 426M960 34L1120 90M960 90L1120 146M960 146L1120 90M960 146L1120 202M960 202L1120 146M960 202L1120 258M960 258L1120 202M960 258L1120 314M960 314L1120 258M960 314L1120 370M960 370L1120 314M960 426L1120 370M1120 90L1280 146M1120 146L1280 202M1120 202L1280 146M1120 202L1280 258M1120 258L1280 202M1120 258L1280 314M1120 314L1280 258M1120 370L1280 314M1280 146L1440 90M1280 146L1440 202M1280 202L1440 146M1280 202L1440 258M1280 258L1440 202M1280 258L1440 314M1280 314L1440 258M1280 314L1440 370"/>
+    <path class="signal" d="M0 202L160 146M160 146L320 90M320 90L480 146M480 146L640 202M640 202L800 258M800 258L960 314M960 314L1120 258M1120 258L1280 202M1280 202L1440 146M0 258L160 314M160 314L320 370M320 370L480 314M480 314L640 258M640 258L800 202M800 202L960 146M960 146L1120 202M1120 202L1280 258M1280 258L1440 314"/>
+    <g class="nodes"><circle cx="0" cy="146" r="4"/><circle cx="0" cy="202" r="5" class="on"/><circle cx="0" cy="258" r="5" class="on"/><circle cx="0" cy="314" r="4"/><circle cx="160" cy="90" r="4"/><circle cx="160" cy="146" r="5" class="on"/><circle cx="160" cy="202" r="4"/><circle cx="160" cy="258" r="4"/><circle cx="160" cy="314" r="5" class="on"/><circle cx="160" cy="370" r="4"/><circle cx="320" cy="34" r="4"/><circle cx="320" cy="90" r="5" class="on"/><circle cx="320" cy="146" r="4"/><circle cx="320" cy="202" r="4"/><circle cx="320" cy="258" r="4"/><circle cx="320" cy="314" r="4"/><circle cx="320" cy="370" r="5" class="on"/><circle cx="320" cy="426" r="4"/><circle cx="480" cy="90" r="4"/><circle cx="480" cy="146" r="5" class="on"/><circle cx="480" cy="202" r="4"/><circle cx="480" cy="258" r="4"/><circle cx="480" cy="314" r="5" class="on"/><circle cx="480" cy="370" r="4"/><circle cx="640" cy="146" r="4"/><circle cx="640" cy="202" r="5" class="on"/><circle cx="640" cy="258" r="5" class="on"/><circle cx="640" cy="314" r="4"/><circle cx="800" cy="90" r="4"/><circle cx="800" cy="146" r="4"/><circle cx="800" cy="202" r="5" class="on"/><circle cx="800" cy="258" r="5" class="on"/><circle cx="800" cy="314" r="4"/><circle cx="800" cy="370" r="4"/><circle cx="960" cy="34" r="4"/><circle cx="960" cy="90" r="4"/><circle cx="960" cy="146" r="5" class="on"/><circle cx="960" cy="202" r="4"/><circle cx="960" cy="258" r="4"/><circle cx="960" cy="314" r="5" class="on"/><circle cx="960" cy="370" r="4"/><circle cx="960" cy="426" r="4"/><circle cx="1120" cy="90" r="4"/><circle cx="1120" cy="146" r="4"/><circle cx="1120" cy="202" r="5" class="on"/><circle cx="1120" cy="258" r="5" class="on"/><circle cx="1120" cy="314" r="4"/><circle cx="1120" cy="370" r="4"/><circle cx="1280" cy="146" r="4"/><circle cx="1280" cy="202" r="5" class="on"/><circle cx="1280" cy="258" r="5" class="on"/><circle cx="1280" cy="314" r="4"/><circle cx="1440" cy="90" r="4"/><circle cx="1440" cy="146" r="5" class="on"/><circle cx="1440" cy="202" r="4"/><circle cx="1440" cy="258" r="4"/><circle cx="1440" cy="314" r="5" class="on"/><circle cx="1440" cy="370" r="4"/></g>
+  </svg>
   <div class="wrap intro" id="top">
     <img class="portrait" src="assets/moshiur-rahman.jpg" width="640" height="800" alt="Portrait of Md Moshiur Rahman">
     <div class="intro-text">
@@ -333,6 +360,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
     </p>
     </div>
   </div>
+</div>
 
   <section class="about" id="research" aria-labelledby="research-title">
     <div class="wrap split">
