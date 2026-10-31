@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Moshiur Rahman — Senior Full-Stack Software Engineer</title>
-<meta name="description" content="Moshiur Rahman is a senior full-stack software engineer in Bangkok with over ten years of experience building scalable products, from GIS platforms to high-growth travel systems.">
+<title>Md Moshiur Rahman — LLM Agents and Software Engineering Research</title>
+<meta name="description" content="Md Moshiur Rahman is a researcher and software engineer building and evaluating LLM agent systems for software engineering, and a member of the DSSE Research Group at IIT, University of Dhaka.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#e9eee9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1417" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://mosh2i.com/">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://mosh2i.com/">
-<meta property="og:title" content="Moshiur Rahman — Senior Full-Stack Software Engineer">
-<meta property="og:description" content="Over ten years of building scalable products, from GIS platforms to high-growth travel systems.">
+<meta property="og:title" content="Md Moshiur Rahman — LLM Agents and Software Engineering Research">
+<meta property="og:description" content="Building and evaluating LLM agent systems for software engineering, and language tools for Bangla.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2312212b'/%3E%3Cpath d='M9 9 23 23' stroke='%23ff6b9d' stroke-width='2.5'/%3E%3Ccircle cx='9' cy='9' r='3' fill='%23e9eee9'/%3E%3Ccircle cx='23' cy='23' r='4' fill='%23ff6b9d'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,12 +21,14 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Moshiur Rahman",
-  "jobTitle": "Senior Full-Stack Software Engineer",
+  "name": "Md Moshiur Rahman",
+  "jobTitle": "Researcher and Software Engineer",
+  "affiliation": { "@type": "ResearchOrganization", "name": "DSSE Research Group, Institute of Information Technology, University of Dhaka", "url": "https://dsse.iit.du.ac.bd" },
+  "knowsAbout": ["LLM agents", "Software engineering", "Bangla natural language processing", "Distributed systems"],
   "url": "https://mosh2i.com/",
   "email": "mailto:rahman.e.moshi@gmail.com",
-  "address": { "@type": "PostalAddress", "addressLocality": "Bangkok", "addressCountry": "TH" },
-  "sameAs": ["https://www.linkedin.com/in/mosh2ii", "https://github.com/DreamRunnerMoshi"]
+  "address": { "@type": "PostalAddress", "addressLocality": "Carbondale", "addressRegion": "IL", "addressCountry": "US" },
+  "sameAs": ["https://www.linkedin.com/in/mosh2i", "https://github.com/DreamRunnerMoshi"]
 }
 </script>
 <style>
@@ -126,7 +128,7 @@ nav ul a:hover { text-decoration: underline; }
 .chart {
   position: relative;
   align-self: flex-end;
-  width: min(100%, clamp(250px, min(36vw, 46vh), 500px));
+  width: min(100%, clamp(340px, min(36vw, 46vh), 500px));
   aspect-ratio: 5 / 3;
   margin-top: clamp(40px, 7vh, 64px);
   margin-bottom: 40px;
@@ -138,9 +140,10 @@ nav ul a:hover { text-decoration: underline; }
 .chart .ring { fill: none; stroke: var(--route); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
 .fix { position: absolute; font: 400 .6875rem/1.45 var(--mono); letter-spacing: .03em; color: var(--ink-soft); white-space: nowrap; }
 .fix b { display: block; font-weight: 500; font-size: .875rem; color: var(--ink); letter-spacing: .08em; }
-.fix-dac { left: 14%; bottom: calc(80.7% + 12px); margin-left: -6px; }
-.fix-bkk { right: 14%; top: calc(80.7% + 16px); margin-right: -8px; text-align: right; }
-.fix-bkk b { color: var(--route); }
+.fix-dac { left: 12%; bottom: calc(76.7% + 12px); margin-left: -6px; }
+.fix-bkk { left: 44%; top: calc(80% + 12px); margin-left: -6px; }
+.fix-mdh { right: 12%; bottom: calc(70% + 16px); margin-right: -8px; text-align: right; }
+.fix-mdh b { color: var(--route); }
 
 .intro { margin-top: auto; }
 h1 {
@@ -185,20 +188,61 @@ h3 { font: 400 clamp(1.5rem, 2.4vw, 2rem)/1.15 var(--serif); letter-spacing: -.0
 }
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   margin-top: clamp(40px, 6vw, 72px);
   padding-top: 24px;
   border-top: 1px solid var(--rule);
 }
-.stats dt { font: 300 clamp(2.25rem, 4vw, 3.5rem)/1 var(--serif); letter-spacing: -.02em; }
+.stats dt { font: 300 clamp(2rem, 3.4vw, 3rem)/1 var(--serif); letter-spacing: -.02em; }
 .stats dd { margin-top: 8px; color: var(--ink-soft); font-size: .9375rem; line-height: 1.4; }
+
+.affiliation { max-width: 62ch; margin-top: clamp(24px, 3vw, 36px); color: var(--ink-soft); }
+.affiliation a { color: var(--ink); }
+.themes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px clamp(24px, 3vw, 40px);
+  margin-top: clamp(40px, 6vw, 72px);
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.themes h3 { font-size: clamp(1.375rem, 2vw, 1.625rem); }
+.themes p { margin-top: 10px; color: var(--ink-soft); }
+
+.pubs { list-style: none; margin: 0; padding: 0; }
+.refs { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 12px; font-weight: 500; }
+.pub {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: 6px 16px;
+  padding-block: clamp(22px, 3vw, 32px);
+  border-top: 1px solid var(--rule);
+}
+.pub:last-child { border-bottom: 1px solid var(--rule); }
+.pub .when { padding-top: 7px; }
+.pub h3 { max-width: 34em; font-size: clamp(1.375rem, 2.1vw, 1.75rem); }
+.byline { margin-top: 10px; color: var(--ink-soft); }
+.byline strong { color: var(--ink); font-weight: 500; }
+.venue, .abstract { max-width: 64ch; margin-top: 8px; color: var(--ink-soft); }
+.status { margin-top: 8px; color: var(--route); }
+
+.feature { padding-bottom: clamp(36px, 5vw, 56px); }
+.feature-meta { color: var(--ink-soft); }
+.feature h3 { margin-top: 8px; font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 300; line-height: 1.05; letter-spacing: -.02em; }
+.feature > p:not(.mono):not(.refs) { max-width: 64ch; margin-top: 16px; color: var(--ink-soft); }
+.feature .stats { margin-top: 28px; margin-bottom: 20px; }
+.project-year { margin-bottom: 4px; color: var(--ink-soft); }
+.exploring { margin-top: clamp(32px, 4vw, 48px); }
+.exploring h3 { font: 400 .75rem/1.4 var(--mono); letter-spacing: .06em; color: var(--ink-soft); }
+.exploring ul { margin-top: 10px; }
+.exploring li { margin-top: 6px; color: var(--ink-soft); }
+.exploring a { color: var(--ink); font-weight: 500; }
 
 .stack {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 32px 24px;
-  margin-top: clamp(40px, 6vw, 72px);
 }
 .stack .mono { color: var(--ink-soft); margin-bottom: 10px; }
 .stack li { font-size: 1rem; line-height: 1.7; }
@@ -262,10 +306,10 @@ h3 { font: 400 clamp(1.5rem, 2.4vw, 2rem)/1.15 var(--serif); letter-spacing: -.0
 }
 .project p { color: var(--ink-soft); max-width: 56ch; }
 .project .award { display: block; margin-top: 10px; color: var(--route); }
-.project .link { display: inline-block; margin-top: 10px; font-weight: 500; color: var(--ink); }
+.project .link { display: block; width: fit-content; margin-top: 10px; font-weight: 500; color: var(--ink); }
 
 /* Recognition and education */
-.record { padding-top: 0; }
+.record + .record { padding-top: 0; }
 .record-list li {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -277,7 +321,6 @@ h3 { font: 400 clamp(1.5rem, 2.4vw, 2rem)/1.15 var(--serif); letter-spacing: -.0
 .record-list .detail { color: var(--ink-soft); }
 .record-list .detail a { color: var(--ink); }
 .record-list li:last-child { border-bottom: 1px solid var(--rule); }
-.record + .record { margin-top: 0; }
 
 /* Contact */
 .contact {
@@ -315,10 +358,13 @@ footer {
 @media (max-width: 960px) {
   .split { grid-template-columns: minmax(0, 1fr); }
   .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .themes { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 720px) {
   .intro-row { grid-template-columns: minmax(0, 1fr); }
-  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats { grid-template-columns: minmax(0, 1fr); }
+  .pub { grid-template-columns: minmax(0, 1fr); }
+  .pub .when { padding-top: 0; }
   .project, .record-list li { grid-template-columns: minmax(0, 1fr); }
   .legs::before, .legs::after, .leg::before { left: 6px; }
   .leg { grid-template-columns: minmax(0, 1fr); padding-left: 32px; }
@@ -334,7 +380,7 @@ footer {
 /* Motion */
 @media (prefers-reduced-motion: no-preference) {
   .chart path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.8s .25s cubic-bezier(.6, 0, .2, 1) forwards; }
-  .chart .here, .fix-bkk { opacity: 0; animation: arrive .5s 1.8s forwards; }
+  .chart .here, .fix-mdh { opacity: 0; animation: arrive .5s 1.8s forwards; }
   .chart .ring { transform-box: fill-box; transform-origin: center; animation: ping 3.2s 2s ease-out infinite; opacity: 0; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
   @keyframes arrive { to { opacity: 1; } }
@@ -364,34 +410,37 @@ footer {
   <canvas class="contours" data-live aria-hidden="true"></canvas>
   <div class="wrap hero-inner">
     <nav aria-label="Primary">
-      <a class="mark mono" href="#top" id="top">Moshiur Rahman</a>
+      <a class="mark mono" href="#top" id="top">Md Moshiur Rahman</a>
       <ul class="mono">
-        <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Papers</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#recognition">Recognition</a></li>
+        <li><a href="#experience">Industry</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
-    <div class="chart" role="img" aria-label="A route on a chart from Dhaka, Bangladesh, to Bangkok, Thailand">
+    <div class="chart" role="img" aria-label="A route on a chart from Dhaka, Bangladesh, through Bangkok, Thailand, to Carbondale, Illinois">
       <svg viewBox="0 0 500 300" aria-hidden="true">
-        <path pathLength="1" d="M70 58 C 190 62, 300 130, 430 242"/>
-        <circle class="ring" cx="430" cy="242" r="30"/>
-        <circle class="origin" cx="70" cy="58" r="6"/>
-        <circle class="here" cx="430" cy="242" r="8"/>
+        <path pathLength="1" d="M60 70 C 90 170, 150 225, 220 240 C 310 258, 400 190, 440 90"/>
+        <circle class="ring" cx="440" cy="90" r="30"/>
+        <circle class="origin" cx="60" cy="70" r="6"/>
+        <circle class="origin" cx="220" cy="240" r="6"/>
+        <circle class="here" cx="440" cy="90" r="8"/>
       </svg>
       <div class="fix fix-dac" aria-hidden="true"><b>DAC</b>23.81°N 90.41°E</div>
       <div class="fix fix-bkk" aria-hidden="true"><b>BKK</b>13.76°N 100.50°E</div>
+      <div class="fix fix-mdh" aria-hidden="true"><b>MDH</b>37.73°N 89.22°W</div>
     </div>
 
     <div class="intro">
       <h1>Moshiur <em>Rahman</em></h1>
       <div class="intro-row">
-        <p class="lede">Senior full-stack software engineer, building systems that scale and teams that ship. Based in Bangkok.</p>
+        <p class="lede">Researcher and software engineer. I build and evaluate LLM agent systems for software engineering, and work on language tools for Bangla.</p>
         <div class="actions">
-          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn primary" href="#publications">Read the work</a>
           <a class="btn" href="https://github.com/DreamRunnerMoshi">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/mosh2ii">LinkedIn</a>
+          <a class="btn" href="https://www.linkedin.com/in/mosh2i">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -399,130 +448,61 @@ footer {
 </header>
 
 <main id="main">
-  <section class="about" aria-labelledby="about-title">
+  <section class="about" id="research" aria-labelledby="research-title">
     <div class="wrap split">
-      <h2 id="about-title">About</h2>
+      <h2 id="research-title">Research</h2>
       <div>
-        <p class="statement">Over ten years of full-stack work across a wide range of stacks and domains, most recently guiding teams through MVP launches on a high-growth travel platform. Beyond shipping features, I help developers raise the bar on code review, tech debt, performance and test coverage.</p>
-        <dl class="stats">
-          <div><dt>10+</dt><dd>years in full-stack development</dd></div>
-          <div><dt>4+</dt><dd>product launches guided from MVP</dd></div>
-          <div><dt>20+</dt><dd>repositories contributed to at Agoda</dd></div>
-          <div><dt>1,000s</dt><dd>of extra bookings a month from legacy bug fixes</dd></div>
-        </dl>
-        <div class="stack">
+        <p class="statement">I study how LLM systems behave when they do real work, and I test them against independent evaluation harnesses instead of their own reports. That work draws on more than ten years of building and operating large-scale distributed systems.</p>
+        <p class="affiliation">Current member of the <a href="https://dsse.iit.du.ac.bd">Distributed Systems and Software Engineering (DSSE) Research Group</a>, Institute of Information Technology, University of Dhaka, led by Dr. Kazi Muheymin-Us-Sakib.</p>
+        <div class="themes">
           <div>
-            <p class="mono">Systems</p>
-            <ul>
-              <li>Distributed systems</li>
-              <li>Microservices</li>
-              <li>RabbitMQ</li>
-              <li>C# and Dapper</li>
-            </ul>
+            <h3>LLM agents for software engineering</h3>
+            <p>Emergent delegation between frontier and low-cost models, cost and accuracy trade-offs, and verification that does not trust self-reported success.</p>
           </div>
           <div>
-            <p class="mono">Data &amp; geo</p>
-            <ul>
-              <li>Postgres</li>
-              <li>PostGIS</li>
-              <li>Google Maps API</li>
-              <li>Apache Lucene</li>
-            </ul>
+            <h3>Bangla language AI</h3>
+            <p>Benchmark datasets for evaluating LLMs in Bangla, and tokenizers designed to handle colloquial accent.</p>
           </div>
           <div>
-            <p class="mono">Client</p>
-            <ul>
-              <li>Ionic</li>
-              <li>Cross-platform mobile</li>
-              <li>D3.js</li>
-              <li>C3.js</li>
-            </ul>
-          </div>
-          <div>
-            <p class="mono">Learning &amp; vision</p>
-            <ul>
-              <li>Python</li>
-              <li>PyTorch</li>
-              <li>OpenCV</li>
-              <li>NLP and data analysis</li>
-            </ul>
+            <h3>Distributed and geographic systems</h3>
+            <p>Architectures for publishing and manipulating vector data on the web, and scalable backend systems in production.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="experience" id="experience" aria-labelledby="experience-title">
+  <section class="record" id="publications" aria-labelledby="publications-title">
     <div class="wrap split">
-      <h2 id="experience-title">Experience</h2>
-      <ol class="legs" style="list-style:none;margin:0;padding:0">
-        <li class="leg">
-          <p class="when mono"><span>Oct 2021</span><span>Present</span></p>
+      <h2 id="publications-title">Publications</h2>
+      <ol class="pubs">
+        <li class="pub">
+          <p class="when mono">2025</p>
           <div>
-            <h3>Agoda</h3>
-            <p class="role">Senior Full Stack Software Engineer · Booking Holdings</p>
-            <ul class="points">
-              <li>Solved legacy bugs, <strong>increasing bookings by thousands per month</strong>.</li>
-              <li>Contributed to <strong>20+ repositories</strong>, designing products for performance and scalability.</li>
-              <li>Led product development from requirement analysis through design, development and maintenance.</li>
-              <li>Enhanced the email delivery system with async mechanisms on RabbitMQ.</li>
-              <li>Implemented idempotency keys in microservices to improve performance and avoid redundant computation.</li>
-              <li>Improved bug investigation through correlation IDs and a no-retry policy with third-party services.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies">
-              <li>Microservices</li><li>RabbitMQ</li><li>Idempotency</li>
-            </ul>
+            <h3>Building a Bangla Benchmark Dataset to Evaluate LLM and Accuracy Analysis of Popular LLMs</h3>
+            <p class="byline"><strong>Moshi, R.</strong></p>
+            <p class="status mono">In process of publication</p>
+            <p class="abstract">A dataset of 3,000 multiple-choice questions from Bangladesh Civil Service exams across nine subjects. On an initial 200-question test, accuracy was 79.5% for DeepSeek, 61.5% for OpenAI, 59.5% for Gemini and 52.5% for Llama.</p>
+            <p class="refs"><a href="https://mosh2i.com/llm_in_bangla/">Project page</a><a href="https://github.com/DreamRunnerMoshi/llm_in_bangla">Code</a></p>
           </div>
         </li>
-        <li class="leg">
-          <p class="when mono"><span>Nov 2018</span><span>Sep 2021</span></p>
+        <li class="pub">
+          <p class="when mono">2024</p>
           <div>
-            <h3>Cefalo Bangladesh</h3>
-            <p class="role">Software Engineer</p>
-            <ul class="points">
-              <li>Worked with cross-functional teams to deliver scalable features.</li>
-              <li>Integrated third-party KYC services for customer verification and bill payment systems.</li>
-              <li>Developed and maintained GIS-based search features with the Google Maps API.</li>
-              <li>Built database-based queue mechanisms to improve third-party callback processing.</li>
-              <li>Improved airtime processing by introducing random nonce generation.</li>
-              <li>Resolved key bugs for faster, frictionless customer onboarding on a media platform.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies">
-              <li>Google Maps API</li><li>KYC</li><li>Payments</li>
-            </ul>
+            <h3>BongoTokenizer: Byte Pair Encoding (BPE) based Bangla Language Tokenizer design to incorporate colloquial accent</h3>
+            <p class="byline"><strong>Moshi, R.</strong></p>
+            <p class="status mono">In process of publication</p>
+            <p class="abstract">A BPE tokenizer trained on Bangla Wikipedia alongside novels and the works of Rabindranath Tagore, so that it captures colloquial as well as formal text.</p>
+            <p class="refs"><a href="https://github.com/DreamRunnerMoshi/BongoTokenizer">Code</a></p>
           </div>
         </li>
-        <li class="leg">
-          <p class="when mono"><span>Jul 2016</span><span>Nov 2018</span></p>
+        <li class="pub">
+          <p class="when mono">2014</p>
           <div>
-            <h3>Streams Tech</h3>
-            <p class="role">Software Engineer</p>
-            <ul class="points">
-              <li>Worked on <strong>STREAM</strong>, a USAID-funded survey and GIS data collection system used by NGOs including CARE Bangladesh, World Vision and Helen Keller International.</li>
-              <li>Designed and developed two-way data syncing between mobile apps and cloud services.</li>
-              <li>Built an Ionic mobile app for offline data collection.</li>
-              <li>Designed GIS databases with PostGIS to store and publish geographic data.</li>
-              <li>Implemented a dynamic form data system with Postgres and Dapper.</li>
-              <li>Created data visualization dashboards with D3.js and C3.js.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies">
-              <li>PostGIS</li><li>Postgres</li><li>Dapper</li><li>Ionic</li><li>D3.js</li><li>C3.js</li>
-            </ul>
-          </div>
-        </li>
-        <li class="leg">
-          <p class="when mono"><span>Jan 2015</span><span>Jun 2016</span></p>
-          <div>
-            <h3>Icebreakers Studio</h3>
-            <p class="role">Software Engineer and Co-founder</p>
-            <ul class="points">
-              <li>Designed the system architecture and built cross-platform mobile apps.</li>
-              <li>Developed a location-based search engine with Apache Lucene and C#.</li>
-              <li>Built and distributed SaaS products for various use cases.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies">
-              <li>Apache Lucene</li><li>C#</li><li>SaaS</li>
-            </ul>
+            <h3>MapBeing: An architecture for manipulating and publishing vector data in web based Geographic Information System</h3>
+            <p class="byline"><strong>Moshi, R.</strong>, Nahar, N., Rahman, R., and Sakib, K.</p>
+            <p class="venue">The 8th International Conference on Software, Knowledge, Information Management and Applications (SKIMA 2014), pp. 1–7, IEEE.</p>
+            <p class="refs"><a href="https://ieeexplore.ieee.org/document/7083533">IEEE Xplore</a><a href="https://doi.org/10.1109/SKIMA.2014.7083533">DOI</a></p>
           </div>
         </li>
       </ol>
@@ -532,71 +512,207 @@ footer {
   <section id="projects" aria-labelledby="projects-title">
     <div class="wrap split">
       <h2 id="projects-title">Projects</h2>
-      <div class="projects-list">
-        <article class="project">
-          <h3>Crop Alert</h3>
-          <div>
-            <p>Helps farmers predict crop diseases using crowdsourced reports and NASA satellite data.</p>
-            <span class="award mono">4th · NASA Space Apps Challenge 2015, Bangladesh</span>
-            <a class="link" href="https://2015.spaceappschallenge.org/project/the-farmers">View the project</a>
-          </div>
+      <div>
+        <article class="feature">
+          <p class="mono feature-meta">2026 · Two-tier LLM agent architecture</p>
+          <h3>Gru &amp; Minion</h3>
+          <p>A frontier model, Gru, owns the task end to end and chooses when to delegate bounded work to a cheap model, Minion. Gru re-runs the checks itself instead of trusting the agent’s report. I benchmarked it on the real SWE-bench and GAIA harnesses with model pairs from three vendors, and all three matched or beat their solo baseline on SWE-bench.</p>
+          <dl class="stats">
+            <div><dt>92.3%</dt><dd>of tokens moved to the cheap model, in the best model pair</dd></div>
+            <div><dt>14% → 52%</dt><dd>GAIA resolve rate from swapping vendor alone, on the same pair</dd></div>
+            <div><dt>Task fit</dt><dd>not forceful wording, drove delegation in a 12-run prompt ablation</dd></div>
+          </dl>
+          <p class="refs"><a href="https://github.com/DreamRunnerMoshi/gru_minion">Code and experiments</a></p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Python</li><li>LiteLLM</li><li>OpenRouter</li><li>Docker</li><li>Claude Code plugin</li>
+          </ul>
         </article>
-        <article class="project">
-          <h3>Eye Controlled Game</h3>
-          <div>
-            <p>A car-racing game steered by eye movements, built with OpenCV and the jMonkey game engine.</p>
-          </div>
-        </article>
-        <article class="project">
-          <h3>Doorbin</h3>
-          <div>
-            <p>A Wikipedia-based search engine built on Lucene that returns structured search results.</p>
-          </div>
-        </article>
-        <article class="project">
-          <h3>Lloyd List</h3>
-          <div>
-            <p>A location-based C2C mobile app for buying and selling, with geolocation filtering.</p>
-            <span class="award mono">4th · US creative idea fair</span>
-          </div>
-        </article>
+        <div class="projects-list">
+          <article class="project">
+            <div>
+              <p class="mono project-year">2024</p>
+              <h3>Alchemist</h3>
+            </div>
+            <div>
+              <p>An AI assistant that orchestrates LLMs, semantic embeddings and a custom BPE tokenizer in a multi-source agentic pipeline to resolve customer queries.</p>
+              <a class="link" href="http://www.alchemyist.ai">Visit Alchemist</a>
+            </div>
+          </article>
+          <article class="project">
+            <div>
+              <p class="mono project-year">2015</p>
+              <h3>Crop Alert</h3>
+            </div>
+            <div>
+              <p>A prediction algorithm that warns farmers before crop diseases reach their fields, using NASA historical data, crowdsourced reports and machine learning.</p>
+              <span class="award mono">Honorable Mention · NASA Space Apps Challenge 2015, Bangladesh</span>
+              <a class="link" href="https://2015.spaceappschallenge.org/project/the-farmers">View the project</a>
+            </div>
+          </article>
+          <article class="project">
+            <div>
+              <p class="mono project-year">2013–2014</p>
+              <h3>Doorbin</h3>
+            </div>
+            <div>
+              <p>A Wikipedia-based search engine indexed with Lucene, applying the Vector Space Model for document ranking.</p>
+            </div>
+          </article>
+          <article class="project">
+            <div>
+              <p class="mono project-year">2013–2014</p>
+              <h3>Eye Controlled Game</h3>
+            </div>
+            <div>
+              <p>A car game controlled by eye movement, built with OpenCV and the jMonkey engine.</p>
+            </div>
+          </article>
+        </div>
+        <div class="exploring">
+          <h3 class="mono">Also exploring</h3>
+          <ul>
+            <li><a href="https://github.com/DreamRunnerMoshi/AppliedSAM">AppliedSAM</a>: improving the Segment Anything Model for medical image segmentation.</li>
+            <li><a href="https://github.com/DreamRunnerMoshi/Neo4JLLM">Neo4JLLM</a>: a knowledge graph of Bengali newspaper articles built with named entity recognition.</li>
+            <li><a href="https://github.com/DreamRunnerMoshi/nanoGPT-Bangla">nanoGPT-Bangla</a>: a small GPT trained on Rabindranath Tagore’s poems.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="record" id="recognition" aria-labelledby="recognition-title">
+  <section class="experience" id="experience" aria-labelledby="experience-title">
     <div class="wrap split">
-      <h2 id="recognition-title">Recognition</h2>
+      <h2 id="experience-title">Industry experience</h2>
+      <ol class="legs" style="list-style:none;margin:0;padding:0">
+        <li class="leg">
+          <p class="when mono"><span>Oct 2021</span><span>Jun 2026</span></p>
+          <div>
+            <h3>Agoda</h3>
+            <p class="role">Senior Full Stack Software Engineer · Booking Holdings</p>
+            <ul class="points">
+              <li>Researched and developed <strong>4+ products</strong> through MVP and the phases after it.</li>
+              <li>Built an end-to-end AI-powered workflow that <strong>accelerated development of select features by 300%</strong>.</li>
+              <li>Improved bug investigation by introducing new tools and techniques.</li>
+              <li>Contributed to <strong>20+ repositories</strong> and designed several products for scalability.</li>
+              <li>Delivered products from requirement analysis through design, development and maintenance.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="leg">
+          <p class="when mono"><span>Nov 2018</span><span>Sep 2021</span></p>
+          <div>
+            <h3>Cefalo Bangladesh</h3>
+            <p class="role">Senior Software Engineer</p>
+            <ul class="points">
+              <li>Developed and maintained GIS-based search features using the Google Maps API.</li>
+              <li>Improved performance by using random numbers to generate nonces instead of locked code.</li>
+              <li>Built a database-based queue mechanism to optimize third-party callbacks.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="leg">
+          <p class="when mono"><span>Jul 2016</span><span>Nov 2018</span></p>
+          <div>
+            <h3>Streams Tech</h3>
+            <p class="role">Software Engineer</p>
+            <ul class="points">
+              <li>Worked on <strong>STREAM</strong>, a USAID-funded system used by NGOs including CARE Bangladesh, World Vision and Helen Keller International.</li>
+              <li>Designed and developed two-way data syncing between mobile and cloud services.</li>
+              <li>Developed an Ionic mobile app for offline data collection.</li>
+              <li>Designed and implemented a GIS database with PostGIS to store and publish GIS data.</li>
+              <li>Developed dynamic form data storage and querying with PostgreSQL and Dapper.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="leg">
+          <p class="when mono"><span>Jan 2015</span><span>Jun 2016</span></p>
+          <div>
+            <h3>Icebreakers Studio</h3>
+            <p class="role">Software Engineer and Co-founder</p>
+            <ul class="points">
+              <li>Built a restaurant search and ordering system based in Dhaka.</li>
+              <li>Designed and implemented a search engine using Lucene and a SQL database.</li>
+              <li>Designed and built a cross-platform mobile app with a .NET backend.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="record" id="education" aria-labelledby="education-title">
+    <div class="wrap split">
+      <h2 id="education-title">Education</h2>
       <ul class="record-list">
         <li>
-          <span class="label">Publication</span>
-          <span class="detail"><a href="https://ieeexplore.ieee.org/document/7083533">MapBeing: An architecture for manipulating and publishing vector data in web-based Geographic Information Systems</a>, IEEE</span>
-        </li>
-        <li>
-          <span class="label">ACM ICPC 2013</span>
-          <span class="detail">Regional contest participant, solving 5 problems</span>
-        </li>
-        <li>
-          <span class="label">Competitive programming</span>
-          <span class="detail">Notable positions on UVa Online Judge, TopCoder, LeetCode, HackerRank, Project Euler and Rosalind</span>
-        </li>
-        <li>
-          <span class="label">Training instructor</span>
-          <span class="detail">Programming contest instructor at the University of Dhaka</span>
+          <span class="label">B.Sc. in Software Engineering, 2011–2014</span>
+          <span class="detail">Institute of Information Technology, University of Dhaka. CGPA 3.48 out of 4.</span>
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="record" aria-labelledby="education-title">
+  <section class="record" aria-labelledby="teaching-title">
     <div class="wrap split">
-      <h2 id="education-title">Education</h2>
+      <h2 id="teaching-title">Teaching and contests</h2>
       <ul class="record-list">
         <li>
-          <span class="label">B.Sc. in Software Engineering, 2014</span>
-          <span class="detail">Institute of Information Technology, University of Dhaka. CGPA 3.48. Coursework in algorithms, combinatorial optimization, parallel computing, distributed systems, AI, information retrieval, security, and pattern recognition.</span>
+          <span class="label">Programming contest instructor</span>
+          <span class="detail">Taught at the University of Dhaka, helping students solve programming problems and prepare for the ACM ICPC.</span>
+        </li>
+        <li>
+          <span class="label">ACM ICPC 2013</span>
+          <span class="detail">Regional contest participant, solving 5 problems.</span>
+        </li>
+        <li>
+          <span class="label">Online problem solving</span>
+          <span class="detail">Top positions on UVa Online Judge, TopCoder, LeetCode, HackerRank, Project Euler and Rosalind.</span>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <section class="record" aria-labelledby="tools-title">
+    <div class="wrap split">
+      <h2 id="tools-title">Tools</h2>
+      <div class="stack">
+        <div>
+          <p class="mono">LLM research</p>
+          <ul>
+            <li>Python</li>
+            <li>LiteLLM</li>
+            <li>LangChain</li>
+            <li>SWE-bench and GAIA</li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono">Systems</p>
+          <ul>
+            <li>C# and .NET Core</li>
+            <li>Scala</li>
+            <li>Docker and Kubernetes</li>
+            <li>Grafana</li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono">Data &amp; geo</p>
+          <ul>
+            <li>PostgreSQL and SQL Server</li>
+            <li>PostGIS</li>
+            <li>GDAL</li>
+            <li>GeoServer</li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono">Web</p>
+          <ul>
+            <li>React and TypeScript</li>
+            <li>Angular</li>
+            <li>GraphQL</li>
+            <li>D3.js</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -604,16 +720,16 @@ footer {
 <div class="contact" id="contact">
   <canvas class="contours" aria-hidden="true"></canvas>
   <div class="wrap">
-    <p class="mono">Bangkok, Thailand</p>
-    <h2>Let’s build something worth the trip.</h2>
+    <p class="mono">Carbondale, Illinois</p>
+    <h2>Open to research conversations and collaboration.</h2>
     <a class="email" href="mailto:rahman.e.moshi@gmail.com">rahman.e.moshi@gmail.com</a>
     <div class="contact-links">
-      <a href="https://www.linkedin.com/in/mosh2ii">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/mosh2i">LinkedIn</a>
       <a href="https://github.com/DreamRunnerMoshi">GitHub</a>
     </div>
     <footer class="mono">
-      <span>© <span id="year">2026</span> Moshiur Rahman</span>
-      <span>13.7563°N 100.5018°E</span>
+      <span>© <span id="year">2026</span> Md Moshiur Rahman</span>
+      <span>37.7273°N 89.2168°W</span>
     </footer>
   </div>
 </div>
