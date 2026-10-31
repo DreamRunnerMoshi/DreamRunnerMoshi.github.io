@@ -135,26 +135,6 @@ h1 { font: 400 clamp(2.5rem, 5.5vw, 3.75rem)/1.08 var(--serif); letter-spacing: 
 .intro-links a, .refs a, .project .link { text-decoration-color: transparent; }
 .intro-links a:hover, .refs a:hover, .project .link:hover { text-decoration-color: currentColor; }
 
-/* Neural network behind the intro, fainter under the text */
-.intro-band { position: relative; overflow: hidden; }
-.intro-band .intro { position: relative; }
-.network {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  --edge: max(var(--gutter), calc(50% - 540px + var(--gutter)));
-  --clear-to: calc(100% - var(--edge) - clamp(170px, 20vw, 216px) - 60px);
-  --fade: linear-gradient(90deg, #0009 0, transparent calc(var(--edge) - 16px), transparent var(--clear-to), #000 calc(var(--clear-to) + 110px));
-  -webkit-mask-image: var(--fade);
-  mask-image: var(--fade);
-}
-.network .links { fill: none; stroke: #d6e0ed; stroke-width: 1; }
-.network .signal { fill: none; stroke: #8fadd4; stroke-width: 1.5; }
-.network .nodes circle { fill: var(--paper); stroke: #c2d1e5; stroke-width: 1.25; }
-.network .nodes circle.on { fill: #8fadd4; stroke: #8fadd4; }
-.portrait { position: relative; box-shadow: 0 0 0 6px var(--paper); }
-
 /* Sections */
 section { padding-block: clamp(40px, 6vw, 64px); border-top: 1px solid var(--rule); }
 .split { display: grid; grid-template-columns: 2.5fr 9.5fr; gap: 20px clamp(24px, 4vw, 48px); }
@@ -174,6 +154,52 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 .themes p { margin-top: 6px; color: var(--ink-soft); font-size: .9375rem; }
 
 .refs { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; font-size: .9375rem; font-weight: 500; }
+
+/* Map of work */
+.works-map { padding-block: clamp(28px, 4vw, 40px) clamp(36px, 5vw, 56px); }
+.map-wrap { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: var(--gutter); }
+.map-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 32px; margin-bottom: 16px; }
+.map-head .meta { max-width: 74ch; }
+.map { position: relative; display: grid; grid-template-columns: var(--fields); }
+.map-links { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.map-links path { fill: none; stroke: #b9c8dc; stroke-width: 1.25; vector-effect: non-scaling-stroke; }
+.map-links .strong { stroke: var(--accent); stroke-width: 2; }
+.field { border-left: 1px solid var(--rule); background: #fafbfc; }
+.field:first-of-type { border-left: 0; border-radius: 8px 0 0 8px; }
+.field:last-of-type { border-radius: 0 8px 8px 0; }
+.field-strong { background: var(--tint); }
+.field h3 { height: 38px; padding: 10px 14px 0; font: 600 .8125rem/1.4 var(--sans); color: var(--ink-soft); }
+.field-strong h3 { color: var(--accent); }
+.field-works {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--rows), minmax(0, 1fr));
+  height: 332px;
+  gap: 18px;
+  padding: 6px 12px 12px;
+}
+.work {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.work:hover { border-color: var(--accent); box-shadow: 0 2px 8px #1f4e8c22; }
+.field-strong .work { border-color: #c6d4e7; }
+.field-strong .work:hover { border-color: var(--accent); }
+.work-title { font: 500 1rem/1.2 var(--serif); }
+.field-strong .work-title { color: var(--accent); }
+.work-note { color: var(--ink-soft); font-size: .78125rem; line-height: 1.35; }
+.work-year { margin-top: auto; color: var(--ink-soft); font-size: .75rem; font-variant-numeric: tabular-nums; }
 
 /* Publications */
 .pub {
@@ -266,6 +292,13 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 .site-foot { border-top: 1px solid var(--rule); padding-block: 20px; }
 
 /* Responsive */
+@media (max-width: 1240px) {
+  .map { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .map-links, .map-head .meta { display: none; }
+  .field, .field:first-of-type, .field:last-of-type { border: 0; border-radius: 8px; }
+  .field h3 { height: auto; padding-bottom: 6px; }
+  .field-works { height: auto; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); grid-template-rows: none; gap: 10px; }
+}
 @media (max-width: 820px) {
   .split { grid-template-columns: minmax(0, 1fr); }
   .themes { grid-template-columns: minmax(0, 1fr); }
@@ -277,9 +310,11 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
   .stats { grid-template-columns: minmax(0, 1fr); }
   .pub, .leg, .project, .record-list li { grid-template-columns: minmax(0, 1fr); }
   .intro-links .place { flex-basis: 100%; }
+  .field-works { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .work { padding: 8px 10px; }
+  .work-note { display: none; }
   .intro { grid-template-columns: minmax(0, 1fr); }
   .portrait { grid-column: 1; width: 148px; }
-  .network { --fade: linear-gradient(180deg, #000 0, #000 150px, transparent 215px); }
   .intro-text { grid-column: 1; grid-row: 2; }
 }
 @media (max-width: 420px) {
@@ -287,7 +322,7 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 }
 
 @media print {
-  .site-head, .skip, .network { display: none; }
+  .site-head, .skip, .map-links { display: none; }
   a { color: inherit; }
   .intro { padding-block: 0 16px; }
   section { padding-block: 14px; }
@@ -340,12 +375,6 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
 </header>
 
 <main id="main">
-<div class="intro-band">
-  <svg class="network" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <path class="links" d="M0 146L160 90M0 146L160 202M0 202L160 146M0 202L160 258M0 258L160 202M0 258L160 314M0 314L160 258M0 314L160 370M160 90L320 34M160 90L320 146M160 146L320 90M160 146L320 202M160 202L320 146M160 202L320 258M160 258L320 202M160 258L320 314M160 314L320 258M160 314L320 370M160 370L320 314M160 370L320 426M320 34L480 90M320 90L480 146M320 146L480 90M320 146L480 202M320 202L480 146M320 202L480 258M320 258L480 202M320 258L480 314M320 314L480 258M320 314L480 370M320 370L480 314M320 426L480 370M480 90L640 146M480 146L640 202M480 202L640 146M480 202L640 258M480 258L640 202M480 258L640 314M480 314L640 258M480 370L640 314M640 146L800 90M640 146L800 202M640 202L800 146M640 202L800 258M640 258L800 202M640 258L800 314M640 314L800 258M640 314L800 370M800 90L960 34M800 90L960 146M800 146L960 90M800 146L960 202M800 202L960 146M800 202L960 258M800 258L960 202M800 258L960 314M800 314L960 258M800 314L960 370M800 370L960 314M800 370L960 426M960 34L1120 90M960 90L1120 146M960 146L1120 90M960 146L1120 202M960 202L1120 146M960 202L1120 258M960 258L1120 202M960 258L1120 314M960 314L1120 258M960 314L1120 370M960 370L1120 314M960 426L1120 370M1120 90L1280 146M1120 146L1280 202M1120 202L1280 146M1120 202L1280 258M1120 258L1280 202M1120 258L1280 314M1120 314L1280 258M1120 370L1280 314M1280 146L1440 90M1280 146L1440 202M1280 202L1440 146M1280 202L1440 258M1280 258L1440 202M1280 258L1440 314M1280 314L1440 258M1280 314L1440 370"/>
-    <path class="signal" d="M0 202L160 146M160 146L320 90M320 90L480 146M480 146L640 202M640 202L800 258M800 258L960 314M960 314L1120 258M1120 258L1280 202M1280 202L1440 146M0 258L160 314M160 314L320 370M320 370L480 314M480 314L640 258M640 258L800 202M800 202L960 146M960 146L1120 202M1120 202L1280 258M1280 258L1440 314"/>
-    <g class="nodes"><circle cx="0" cy="146" r="4"/><circle cx="0" cy="202" r="5" class="on"/><circle cx="0" cy="258" r="5" class="on"/><circle cx="0" cy="314" r="4"/><circle cx="160" cy="90" r="4"/><circle cx="160" cy="146" r="5" class="on"/><circle cx="160" cy="202" r="4"/><circle cx="160" cy="258" r="4"/><circle cx="160" cy="314" r="5" class="on"/><circle cx="160" cy="370" r="4"/><circle cx="320" cy="34" r="4"/><circle cx="320" cy="90" r="5" class="on"/><circle cx="320" cy="146" r="4"/><circle cx="320" cy="202" r="4"/><circle cx="320" cy="258" r="4"/><circle cx="320" cy="314" r="4"/><circle cx="320" cy="370" r="5" class="on"/><circle cx="320" cy="426" r="4"/><circle cx="480" cy="90" r="4"/><circle cx="480" cy="146" r="5" class="on"/><circle cx="480" cy="202" r="4"/><circle cx="480" cy="258" r="4"/><circle cx="480" cy="314" r="5" class="on"/><circle cx="480" cy="370" r="4"/><circle cx="640" cy="146" r="4"/><circle cx="640" cy="202" r="5" class="on"/><circle cx="640" cy="258" r="5" class="on"/><circle cx="640" cy="314" r="4"/><circle cx="800" cy="90" r="4"/><circle cx="800" cy="146" r="4"/><circle cx="800" cy="202" r="5" class="on"/><circle cx="800" cy="258" r="5" class="on"/><circle cx="800" cy="314" r="4"/><circle cx="800" cy="370" r="4"/><circle cx="960" cy="34" r="4"/><circle cx="960" cy="90" r="4"/><circle cx="960" cy="146" r="5" class="on"/><circle cx="960" cy="202" r="4"/><circle cx="960" cy="258" r="4"/><circle cx="960" cy="314" r="5" class="on"/><circle cx="960" cy="370" r="4"/><circle cx="960" cy="426" r="4"/><circle cx="1120" cy="90" r="4"/><circle cx="1120" cy="146" r="4"/><circle cx="1120" cy="202" r="5" class="on"/><circle cx="1120" cy="258" r="5" class="on"/><circle cx="1120" cy="314" r="4"/><circle cx="1120" cy="370" r="4"/><circle cx="1280" cy="146" r="4"/><circle cx="1280" cy="202" r="5" class="on"/><circle cx="1280" cy="258" r="5" class="on"/><circle cx="1280" cy="314" r="4"/><circle cx="1440" cy="90" r="4"/><circle cx="1440" cy="146" r="5" class="on"/><circle cx="1440" cy="202" r="4"/><circle cx="1440" cy="258" r="4"/><circle cx="1440" cy="314" r="5" class="on"/><circle cx="1440" cy="370" r="4"/></g>
-  </svg>
   <div class="wrap intro" id="top">
     <img class="portrait" src="assets/moshiur-rahman.jpg" width="640" height="800" alt="Portrait of Md Moshiur Rahman">
     <div class="intro-text">
@@ -360,7 +389,54 @@ h3 { font: 500 1.1875rem/1.3 var(--serif); }
     </p>
     </div>
   </div>
-</div>
+
+<section class="works-map" aria-labelledby="map-title">
+  <div class="map-wrap">
+    <div class="map-head">
+      <h2 id="map-title"><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg><span>Work at a glance</span></h2>
+      <p class="meta">Dark lines link related work across fields: BongoTokenizer’s BPE approach to Alchemist, and LLM evaluation in the Bangla benchmark to Gru &amp; Minion.</p>
+    </div>
+    <div class="map" style="--fields:1.5fr 1.5fr 0.85fr 0.85fr">
+      <svg class="map-links" viewBox="0 0 100 370" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M23.9 121L8.0 121M23.9 121L23.9 287M8.0 287L23.9 287M8.0 121L8.0 287M39.9 121L55.9 121M39.9 121L39.9 287M39.9 287L55.9 287M55.9 121L55.9 287M72.9 121L72.9 287M91.0 93L91.0 204M91.0 204L91.0 315"/>
+        <path class="strong" d="M39.9 121L23.9 121M39.9 287L23.9 287"/>
+      </svg>
+      <div class="field field-strong">
+        <h3>LLM agents and evaluation</h3>
+        <div class="field-works" style="--columns:2;--rows:2">
+          <a class="work" href="https://github.com/DreamRunnerMoshi/bigbrain"><span class="work-title">BigBrain</span><span class="work-note">Prototype of buyer and merchant agents negotiating over Shopify stores</span><span class="work-year">2026</span></a>
+          <a class="work" href="https://github.com/DreamRunnerMoshi/gru_minion"><span class="work-title">Gru &amp; Minion</span><span class="work-note">A frontier model delegates to a cheap one, moving up to 92.3% of tokens</span><span class="work-year">2026</span></a>
+          <a class="work" href="https://github.com/DreamRunnerMoshi/experiment-lineage-graph"><span class="work-title">Experiment Lineage Graph</span><span class="work-note">Claude Code plugin that maps a project’s experiments as a graph</span><span class="work-year">2026</span></a>
+          <a class="work" href="http://www.alchemyist.ai"><span class="work-title">Alchemist</span><span class="work-note">Agentic assistant combining LLMs, embeddings and a BPE tokenizer</span><span class="work-year">2024</span></a>
+        </div>
+      </div>
+      <div class="field field-strong">
+        <h3>Bangla language AI</h3>
+        <div class="field-works" style="--columns:2;--rows:2">
+          <a class="work" href="https://mosh2i.com/llm_in_bangla/"><span class="work-title">Bangla LLM Benchmark</span><span class="work-note">3,000 exam questions for comparing LLMs in Bangla</span><span class="work-year">2025</span></a>
+          <a class="work" href="https://github.com/DreamRunnerMoshi/nanoGPT-Bangla"><span class="work-title">nanoGPT-Bangla</span><span class="work-note">A small GPT trained on Rabindranath Tagore’s poems</span><span class="work-year">2024</span></a>
+          <a class="work" href="https://github.com/DreamRunnerMoshi/BongoTokenizer"><span class="work-title">BongoTokenizer</span><span class="work-note">BPE tokenizer designed for colloquial Bangla</span><span class="work-year">2024</span></a>
+          <a class="work" href="https://github.com/DreamRunnerMoshi/Neo4JLLM"><span class="work-title">Neo4JLLM</span><span class="work-note">Bengali news knowledge graph built with NER</span><span class="work-year">2025</span></a>
+        </div>
+      </div>
+      <div class="field">
+        <h3>Computer vision</h3>
+        <div class="field-works" style="--columns:1;--rows:2">
+          <a class="work" href="https://github.com/DreamRunnerMoshi/AppliedSAM"><span class="work-title">AppliedSAM</span><span class="work-note">Segment Anything for medical images</span><span class="work-year">2026</span></a>
+          <a class="work" href="#projects"><span class="work-title">Eye Controlled Game</span><span class="work-note">Car game steered by eye movement</span><span class="work-year">2013–14</span></a>
+        </div>
+      </div>
+      <div class="field">
+        <h3>Search, geo and ML</h3>
+        <div class="field-works" style="--columns:1;--rows:3">
+          <a class="work" href="https://ieeexplore.ieee.org/document/7083533"><span class="work-title">MapBeing</span><span class="work-note">IEEE paper on web GIS architecture</span><span class="work-year">2014</span></a>
+          <a class="work" href="#projects"><span class="work-title">Doorbin</span><span class="work-note">Wikipedia search with the Vector Space Model</span><span class="work-year">2013–14</span></a>
+          <a class="work" href="https://2015.spaceappschallenge.org/project/the-farmers"><span class="work-title">Crop Alert</span><span class="work-note">Crop disease prediction from NASA data</span><span class="work-year">2015</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <section class="about" id="research" aria-labelledby="research-title">
     <div class="wrap split">
